@@ -3,379 +3,457 @@ import glob
 import logging
 import json
 import re
-import base64
-import requests
-from PIL import Image
-from fuzzywuzzy import process
 import argparse
 from datetime import datetime
 from typing import Optional, List, Dict, Union
+from PIL import Image
+import pytesseract
+from fuzzywuzzy import process
 from sentence_transformers import SentenceTransformer, util
+import torch
 
-# --- Date Conversion Helper ---
+# --- Configure Tesseract Path ---
+
+# Windows example: r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# Linux example: '/usr/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+TESSERACT_PATH = pytesseract.pytesseract.tesseract_cmd
+if os.path.exists(TESSERACT_PATH):
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+else:
+    logging.warning(f"Tesseract path not found: {TESSERACT_PATH}. OCR will be disabled.")
+
+# --- Logging Configuration ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler("newspaper_processing.log")
+    ]
+)
+
+# --- Date Parsing Helper ---
 def parse_italian_date(date_str: str) -> Optional[datetime]:
-    """
-    Parses a date string with Italian month names into a datetime object.
-    Handles formats like '6 Agosto 1946' or '21/07/1946'.
-    """
-    if not date_str or date_str == "N/A":
+    """Robustly parse Italian date strings with multiple format support"""
+    if not date_str or date_str.lower() in ["", "n/a", "null", "none"]:
         return None
 
     italian_months = {
         'gennaio': 1, 'febbraio': 2, 'marzo': 3, 'aprile': 4, 'maggio': 5, 'giugno': 6,
-        'luglio': 7, 'agosto': 8, 'settembre': 9, 'ottobre': 10, 'novembre': 11, 'dicembre': 12
+        'luglio': 7, 'agosto': 8, 'settembre': 9, 'ottobre': 10, 'novembre': 11, 'dicembre': 12,
+        'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'mag': 5, 'giu': 6,
+        'lug': 7, 'ago': 8, 'set': 9, 'ott': 10, 'nov': 11, 'dic': 12
     }
     
-    date_str_lower = date_str.lower()
+    # Pre-clean the string
+    date_str = re.sub(r'[^\w\s/.-]', '', date_str.lower().strip())
     
-    # Try dd/mm/yyyy format first
-    try:
-        return datetime.strptime(date_str, "%d/%m/%Y")
-    except ValueError:
-        pass
+    # Try common formats first
+    for fmt in ("%d/%m/%Y", "%Y-%m-%d", "%d-%m-%Y", "%d.%m.%Y", "%Y/%m/%d"):
+        try:
+            return datetime.strptime(date_str, fmt)
+        except ValueError:
+            pass
 
-    # Try format with month name
+    # Try formats with Italian month names
     for month_name, month_num in italian_months.items():
-        if month_name in date_str_lower:
-            # Replace month name with number and clean the string
-            date_str_cleaned = re.sub(r'[^\d\s]', '', date_str_lower.replace(month_name, str(month_num)))
-            parts = date_str_cleaned.split()
-            if len(parts) >= 3:
+        if month_name in date_str:
+            # Pattern: day + month + year
+            pattern = rf'(\d{{1,2}})\s*{month_name}\s*(\d{{4}})'
+            match = re.search(pattern, date_str)
+            if match:
                 try:
-                    # Attempt to build date from day, month, year
-                    day = int(parts[0])
-                    month = int(parts[1])
-                    year = int(parts[2])
-                    return datetime(year, month, day)
-                except (ValueError, IndexError):
-                    continue # Try next month if parsing fails
-    
+                    day = int(match.group(1))
+                    year = int(match.group(2))
+                    return datetime(year, month_num, day)
+                except ValueError:
+                    continue
+                    
+            # Pattern: month + day + year
+            pattern = rf'{month_name}\s*(\d{{1,2}}),\s*(\d{{4}})'
+            match = re.search(pattern, date_str)
+            if match:
+                try:
+                    day = int(match.group(1))
+                    year = int(match.group(2))
+                    return datetime(year, month_num, day)
+                except ValueError:
+                    continue
+
+    # Try numeric formats with different separators
+    for separator in [' ', '.', '-', '/']:
+        pattern = rf'(\d{{1,2}}){separator}(\d{{1,2}}){separator}(\d{{4}})'
+        match = re.search(pattern, date_str)
+        if match:
+            try:
+                day = int(match.group(1))
+                month = int(match.group(2))
+                year = int(match.group(3))
+                return datetime(year, month, day)
+            except ValueError:
+                continue
+
     logging.warning(f"Could not parse date string: '{date_str}'")
     return None
 
-# --- Local Model Inference ---
-def load_multimodal_model():
-    """Load a multimodal model from Sentence Transformers"""
-    return SentenceTransformer('clip-ViT-B-32')
-
-def query_local_model(prompt: str, image_path: str) -> str:
-    """
-    Use a local multimodal model to answer questions about an image
-    """
+# --- OCR Date Extraction ---
+def extract_date_with_ocr(image_path: str) -> Optional[str]:
+    """Extract date from newspaper image using OCR with region focus"""
+    if not os.path.exists(TESSERACT_PATH):
+        logging.error("Tesseract not configured. Skipping OCR.")
+        return None
+        
     try:
-        # Load model (cached after first load)
-        model = load_multimodal_model()
+        img = Image.open(image_path)
+        width, height = img.size
         
-        # Encode text and image
-        text_emb = model.encode([prompt], convert_to_tensor=True)
-        img_emb = model.encode(Image.open(image_path), convert_to_tensor=True)
+        # Common newspaper date locations
+        regions = [
+            (0, 0, width, int(height * 0.15)),           # Top strip
+            (int(width * 0.7), 0, width, int(height * 0.2)),  # Top-right corner
+            (0, 0, int(width * 0.4), int(height * 0.1)),  # Top-left corner
+            (int(width * 0.4), 0, int(width * 0.6), int(height * 0.1))  # Center top
+        ]
         
-        # Calculate similarity
-        cos_scores = util.cos_sim(text_emb, img_emb)
-        score = cos_scores.item()
+        date_patterns = [
+            r'\b\d{1,2}\s+[a-zA-Z]+\s+\d{4}\b',  # 12 Agosto 1946
+            r'\b\d{1,2}/\d{1,2}/\d{4}\b',         # 12/08/1946
+            r'\b\d{1,2}\.\d{1,2}\.\d{4}\b',       # 12.08.1946
+            r'\b\d{1,2}-\d{1,2}-\d{4}\b',         # 12-08-1946
+            r'\b\d{4}-\d{1,2}-\d{1,2}\b'          # 1946-08-12
+        ]
         
-        # Simple threshold-based decision
-        return "Front Page" if score > 0.3 else "Internal Page"
-    
+        for i, region in enumerate(regions):
+            try:
+                cropped = img.crop(region)
+                # Preprocess image for better OCR
+                cropped = cropped.convert('L')  # Grayscale
+                cropped = cropped.point(lambda x: 0 if x < 150 else 255)  # Thresholding
+                
+                # Perform OCR with Italian language
+                text = pytesseract.image_to_string(
+                    cropped, 
+                    lang='ita',
+                    config='--psm 6 -c preserve_interword_spaces=1'
+                )
+                
+                # Search for date patterns in OCR text
+                for pattern in date_patterns:
+                    match = re.search(pattern, text)
+                    if match:
+                        date_str = match.group(0)
+                        logging.info(f"Found date in region {i+1}: {date_str}")
+                        return date_str
+                        
+            except Exception as e:
+                logging.warning(f"OCR failed for region {i+1}: {str(e)}")
+                continue
+        
+        # Fallback: Full-page OCR
+        try:
+            full_text = pytesseract.image_to_string(
+                img.convert('L'),
+                lang='ita',
+                config='--psm 3'
+            )
+            for pattern in date_patterns:
+                match = re.search(pattern, full_text)
+                if match:
+                    date_str = match.group(0)
+                    logging.info(f"Found date in full-page scan: {date_str}")
+                    return date_str
+        except Exception as e:
+            logging.error(f"Full-page OCR failed: {str(e)}")
+            
     except Exception as e:
-        logging.error(f"Local model inference failed: {str(e)}")
-        return "MODEL_ERROR"
+        logging.error(f"OCR processing failed: {str(e)}")
+    
+    return None
 
-# --- Classification Normalization Helper ---
+# --- Multimodal Model Handling ---
+MODEL_CACHE = None
+
+def load_multimodal_model():
+    """Load and cache the multimodal model"""
+    global MODEL_CACHE
+    if MODEL_CACHE is None:
+        try:
+            MODEL_CACHE = SentenceTransformer('clip-ViT-B-32')
+            logging.info("Multimodal model loaded successfully")
+        except Exception as e:
+            logging.error(f"Failed to load model: {str(e)}")
+            raise
+    return MODEL_CACHE
+
+# --- Page Classification ---
+def classify_page(image_path: str) -> str:
+    """Classify newspaper pages using multimodal comparison"""
+    try:
+        model = load_multimodal_model()
+        img = Image.open(image_path)
+        img_emb = model.encode(img, convert_to_tensor=True)
+        
+        # Define classification prompts
+        prompts = {
+            "Front Page": [
+                "Front page of an Italian newspaper with masthead and date",
+                "First page of a newspaper with headlines and publication date",
+                "Cover page of a daily newspaper showing main stories",
+                "Newspaper front cover featuring prominent headlines"
+            ],
+            "Internal Page": [
+                "Inside page of a newspaper with multiple articles",
+                "Newspaper page with continued articles and advertisements",
+                "Regular content page in a periodical publication",
+                "Inner page of a newspaper with text columns"
+            ],
+            "Back Page": [
+                "Last page of a newspaper",
+                "Back cover of a publication",
+                "Final page of a periodical"
+            ]
+        }
+        
+        # Calculate similarity scores
+        category_scores = {}
+        for category, category_prompts in prompts.items():
+            prompt_embs = model.encode(category_prompts, convert_to_tensor=True)
+            similarities = util.cos_sim(img_emb, prompt_embs)
+            category_scores[category] = torch.max(similarities).item()
+        
+        # Determine classification with confidence thresholds
+        FRONT_THRESHOLD = 0.35
+        INTERNAL_THRESHOLD = 0.3
+        BACK_THRESHOLD = 0.25
+        
+        # Get best score and category
+        best_category = max(category_scores, key=category_scores.get)
+        best_score = category_scores[best_category]
+        
+        # Apply thresholds
+        if best_category == "Front Page" and best_score > FRONT_THRESHOLD:
+            return "Front Page"
+        elif best_category == "Internal Page" and best_score > INTERNAL_THRESHOLD:
+            return "Internal Page"
+        elif best_category == "Back Page" and best_score > BACK_THRESHOLD:
+            return "Back Page"
+        elif best_score > 0.2:  # General threshold
+            return best_category
+        else:
+            return "Uncertain"
+            
+    except Exception as e:
+        logging.error(f"Classification failed: {str(e)}")
+        return "Classification Error"
+
+# --- Classification Normalization ---
 def normalize_classification(raw_classification: str) -> str:
-    """
-    Normalizes raw classification strings to predefined categories,
-    prioritizing specific known misspellings, then using fuzzy matching.
-    """
+    """Normalize classification strings to standard categories"""
     if not isinstance(raw_classification, str):
         return "Unknown"
 
-    raw_classification_lower = raw_classification.lower().strip()
+    raw_classification = raw_classification.strip()
+    raw_lower = raw_classification.lower()
 
-    # Predefined correct classifications for a newspaper
-    correct_classifications = [
-        "Front Page",
-        "Internal Page",
-        "Back Page",
-        "Full-Page Advertisement",
-        "Editorial Page",
-        "Sports Page",
-        "Classifieds Page",
-        "Blank Page",
-        "Reference"
+    # Standard categories
+    standard_categories = [
+        "Front Page", "Internal Page", "Back Page", 
+        "External Front Cover", "External Back Cover",
+        "Internal Front Cover", "Internal Back Cover",
+        "Full-Page Advertisement", "Editorial Page",
+        "Sports Page", "Classifieds Page", "Blank Page", "Reference"
     ]
 
-    # Step 1: Specific corrections for common misspellings
-    if raw_classification_lower == "external fro cover":
-        logging.info(f"Specific correction: '{raw_classification}' to 'External Front Cover'.")
-        return "External Front Cover"
-    if raw_classification_lower == "iernal back cover" or raw_classification_lower == "interal back cover":
-        logging.info(f"Specific correction: '{raw_classification}' to 'Internal Back Cover'.")
-        return "Internal Back Cover"
-    if raw_classification_lower == "iernal fro cover":
-        logging.info(f"Specific correction: '{raw_classification}' to 'Internal Front Cover'.")
-        return "Internal Front Cover"
+    # Direct matches
+    for cat in standard_categories:
+        if raw_lower == cat.lower():
+            return cat
+
+    # Common misspelling corrections
+    corrections = {
+        "fro cover": "Front Cover",
+        "bac cover": "Back Cover",
+        "iernal": "Internal",
+        "external": "External",
+        "advertisment": "Advertisement",
+        "add": "Advertisement"
+    }
+
+    # Apply corrections
+    corrected = raw_classification
+    for error, fix in corrections.items():
+        if error in raw_lower:
+            corrected = corrected.replace(error, fix)
+            logging.info(f"Corrected '{raw_classification}' to '{corrected}'")
+
+    # Fuzzy matching fallback
+    choices_lower = [c.lower() for c in standard_categories]
+    best_match, score = process.extractOne(raw_lower, choices_lower)
     
-    # Extend with other specific variants
-    if "fro cover" in raw_classification_lower and "external" in raw_classification_lower:
-        logging.info(f"Specific correction (substring): '{raw_classification}' to 'External Front Cover'.")
-        return "External Front Cover"
-    if "fro cover" in raw_classification_lower and "internal" in raw_classification_lower:
-        logging.info(f"Specific correction (substring): '{raw_classification}' to 'Internal Front Cover'.")
-        return "Internal Front Cover"
-    if "bac cover" in raw_classification_lower and "internal" in raw_classification_lower:
-        logging.info(f"Specific correction (substring): '{raw_classification}' to 'Internal Back Cover'.")
-        return "Internal Back Cover"
-    if "bac cover" in raw_classification_lower and "external" in raw_classification_lower:
-        logging.info(f"Specific correction (substring): '{raw_classification}' to 'External Back Cover'.")
-        return "External Back Cover"
-
-    # Step 2: Case-insensitive direct match
-    for correct_cat in correct_classifications:
-        if raw_classification_lower == correct_cat.lower():
-            logging.info(f"Direct match: '{raw_classification}' to '{correct_cat}'.")
-            return correct_cat
-            
-    # Step 3: Fuzzy Matching as general fallback
-    choices_lower = [c.lower() for c in correct_classifications]
-    best_match_lower, score = process.extractOne(raw_classification_lower, choices_lower)
-
-    SIMILARITY_THRESHOLD = 85
-
-    if score >= SIMILARITY_THRESHOLD:
-        normalized_category = correct_classifications[choices_lower.index(best_match_lower)]
-        if raw_classification != normalized_category:
-            logging.info(f"Fuzzy normalized: '{raw_classification}' (score: {score}) to '{normalized_category}'.")
-        return normalized_category
-    else:
-        logging.warning(f"Classification '{raw_classification}' (score: {score}) did not meet similarity threshold. Returning as is.")
-        return raw_classification
+    if score > 75:
+        normalized = standard_categories[choices_lower.index(best_match)]
+        if normalized != raw_classification:
+            logging.info(f"Fuzzy matched: '{raw_classification}' -> '{normalized}' ({score}%)")
+        return normalized
+    
+    return raw_classification  # Return original if no good match
 
 # --- Main Processing Function ---
-def run_api_based_inference():
-    # Define output folder and filename
-    OUTPUT_FOLDER = "output"
-    OUTPUT_JSON_FILENAME = "output_extraction.json"
-
-    # Make sure the output folder exists; create if it doesn't
-    if not os.path.exists(OUTPUT_FOLDER):
-        os.makedirs(OUTPUT_FOLDER)
-
-    # Build the full path to the output JSON file
-    output_json_path = os.path.join(OUTPUT_FOLDER, OUTPUT_JSON_FILENAME)
-
-    final_structured_outputs = [] 
-    last_valid_date = None
-
-    logging.info("Script started.") 
-
-    # Load existing data if JSON file exists
-    if os.path.exists(output_json_path) and os.path.getsize(output_json_path) > 0:
-        logging.info(f"Checking for existing output file: {output_json_path}") 
+def process_newspaper_images():
+    # Setup output paths
+    output_folder = "output"
+    os.makedirs(output_folder, exist_ok=True)
+    output_json = os.path.join(output_folder, f"extraction_output.json")
+    
+    # Load existing results
+    processed_data = []
+    if os.path.exists(output_json):
         try:
-            with open(output_json_path, 'r', encoding='utf-8') as f:
-                final_structured_outputs = json.load(f)
-            logging.info(f"Loaded {len(final_structured_outputs)} existing records from {output_json_path}.")
-        except json.JSONDecodeError as e:
-            logging.warning(f"Existing {output_json_path} is corrupted or empty: {e}. Starting with an empty list.")
-            final_structured_outputs = []
+            with open(output_json, 'r', encoding='utf-8') as f:
+                processed_data = json.load(f)
+            logging.info(f"Loaded {len(processed_data)} existing records")
         except Exception as e:
-            logging.warning(f"Error loading existing {output_json_path}: {e}. Starting with an empty list.")
-            final_structured_outputs = []
-    else:
-        logging.info(f"No existing output file found at {output_json_path}. Starting fresh.") 
+            logging.warning(f"Failed to load existing data: {str(e)}")
 
-    logging.info(f"Scanning for images in: {IMAGE_FOLDER}")
+    # Find images
+    image_extensions = ('*.jpg', '*.jpeg', '*.png', '*.bmp', '*.tiff')
     image_paths = []
-
-    # Look for images in the resized subfolder
-    images_subfolder = os.path.join(IMAGE_FOLDER)
-
-    if not os.path.exists(images_subfolder):
-        logging.warning(f"Images subfolder does not exist: {images_subfolder}. Exiting.")
-        return
+    for ext in image_extensions:
+        image_paths.extend(glob.glob(os.path.join(IMAGE_FOLDER, ext)))
     
-    logging.info(f"Looking for images in: {images_subfolder}")
-    
-    for ext in SUPPORTED_EXTENSIONS:
-        current_glob_pattern = os.path.join(images_subfolder, f'*{ext}')
-        image_paths.extend(glob.glob(current_glob_pattern))
-    
-    image_paths.sort()
-    logging.info(f"Found {len(image_paths)} images after sorting.") 
-
     if not image_paths:
-        logging.warning(f"No supported images found in: {IMAGE_FOLDER}. Exiting.")
+        logging.error(f"No images found in: {IMAGE_FOLDER}")
         return
-
-    logging.info(f"Processing {len(image_paths)} images page by page.")
-    logging.debug(f"First image path to process: {image_paths[0] if image_paths else 'N/A'}") 
-
-    for i, img_path in enumerate(image_paths):
-        current_page_num = i + 1
+        
+    image_paths.sort()
+    logging.info(f"Found {len(image_paths)} images to process")
+    
+    # Track date consistency
+    last_valid_date = None
+    date_range_valid = True
+    min_date = datetime.strptime(args.start_date, "%Y-%m-%d")
+    max_date = datetime.strptime(args.end_date, "%Y-%m-%d")
+    
+    # Process images
+    for idx, img_path in enumerate(image_paths):
         filename = os.path.basename(img_path)
+        page_num = idx + 1
         
-        # Initialize result record for this page
-        page_result_record = {
-            "filename": filename,
-            "llm_raw_response": None,
-            "parsed_llm_output": None
-        }
-
-        logging.debug(f"Checking if {filename} (page {current_page_num}) has already been processed.") 
-        if any(record.get('filename') == filename for record in final_structured_outputs):
-            logging.info(f"Page {current_page_num} ({filename}) already processed. Skipping.")
+        # Skip already processed
+        if any(entry.get("filename") == filename for entry in processed_data):
+            logging.info(f"Skipping already processed: {filename}")
             continue
-
-        try:
-            logging.info(f"--- Processing Page {current_page_num}/{len(image_paths)}: {filename} ---")
-
-            # --- PROMPT 1: CLASSIFICATION ONLY ---
-            classification_prompt = (
-                f"Is this image the front page of an Italian newspaper? Look for masthead, date, and main headlines."
-            )
             
-            logging.info(f"Classifying page {current_page_num} with local model...")
-            raw_classification = query_local_model(classification_prompt, img_path)
-            
-            classification = normalize_classification(raw_classification)
-            logging.info(f"Page {current_page_num} classified as: {classification}")
-
-            entry = {
-                "filename": filename,
-                "classification": classification,
-                "issue_date": "N/A",
-                "issue_number": "N/A",
-                "hasGraphics": False,
-                "page_number": "N/A"
-            }
-
-            # For front pages, attempt date extraction
-            if classification == "Front Page":
-                logging.info(f"Front Page detected. Attempting date extraction for page {current_page_num}.")
-                # Simplified date extraction prompt
-                date_prompt = "What is the publication date shown on this newspaper? Respond only with the date."
-                date_response = query_local_model(date_prompt, img_path)
-                
-                # Simple pattern matching for dates
-                date_pattern = r'\b\d{1,2}\s+[\w]+\s+\d{4}\b|\b\d{1,2}/\d{1,2}/\d{4}\b'
-                date_match = re.search(date_pattern, date_response)
-                
-                if date_match:
-                    extracted_date = date_match.group(0)
-                    entry["issue_date"] = extracted_date
-                    logging.info(f"Extracted date for page {current_page_num}: {extracted_date}")
-                else:
-                    logging.warning(f"No date found for front page {current_page_num}")
-
-            # --- DATE VALIDATION ---
-            original_date_str = entry.get("issue_date", "N/A")
-            extracted_date_obj = parse_italian_date(original_date_str)
-
-            if extracted_date_obj:
-                try:
-                    min_date = datetime.strptime(args.start_date, "%Y-%m-%d")
-                    max_date = datetime.strptime(args.end_date, "%Y-%m-%d")
-
-                    # Global range check
-                    if not (min_date <= extracted_date_obj <= max_date):
-                        logging.warning(f"Page {current_page_num}: Date {original_date_str} -> {extracted_date_obj.strftime('%d/%m/%Y')} is outside the valid range. Resetting.")
-                        entry["issue_date"] = "N/A"
-                    # Chronological consistency check
-                    elif last_valid_date and extracted_date_obj < last_valid_date:
-                        logging.warning(f"Page {current_page_num}: Date {original_date_str} -> {extracted_date_obj.strftime('%d/%m/%Y')} is earlier than last valid date. Resetting.")
-                        entry["issue_date"] = "N/A"
-                    else:
-                        # Valid date found - normalize and update state
-                        entry["issue_date"] = extracted_date_obj.strftime('%d/%m/%Y')
-                        last_valid_date = extracted_date_obj
-                        logging.info(f"Page {current_page_num}: Valid date found and normalized: {entry['issue_date']}")
-                except Exception as e:
-                    logging.error(f"Error during date range validation: {e}")
-                    entry["issue_date"] = "N/A"
-            else:
-                if original_date_str != "N/A":
-                    logging.warning(f"Page {current_page_num}: Could not parse date '{original_date_str}'. Resetting to 'N/A'.")
-                entry["issue_date"] = "N/A"
-            
-            # Assign final entry to page record
-            page_result_record["parsed_llm_output"] = entry
-            logging.info(f"Final data for page {current_page_num}: {entry}")
-
-        except Exception as e:
-            logging.error(f"Critical error during processing for page {current_page_num}: {e}", exc_info=True)
-            page_result_record["parsed_llm_output"] = {
-                "filename": filename,
-                "classification": "Processing Critical Error",
-                "hasGraphics": False,
-                "details": str(e)
-            }
-
-        # Update and save JSON file after each page
-        logging.debug(f"State before final append for {filename}: {page_result_record!r}")
-
-        # Remove existing record for this page if present
-        final_structured_outputs = [
-            rec for rec in final_structured_outputs if rec.get('filename') != filename
-        ]
-        final_structured_outputs.append(page_result_record["parsed_llm_output"])
+        logging.info(f"\n{'='*40}")
+        logging.info(f"Processing page {page_num}/{len(image_paths)}: {filename}")
+        logging.info(f"{'='*40}")
         
-        logging.debug(f"Attempting to save partial output for page {current_page_num} to {output_json_path}.") 
+        result = {
+            "filename": filename,
+            "page_number": page_num,
+            "classification": "Unknown",
+            "issue_date": "N/A",
+            "issue_number": "N/A",
+            "hasGraphics": False,
+            "processing_errors": []
+        }
+        
         try:
-            final_structured_outputs.sort(key=lambda x: x.get('filename', ''))
-            with open(output_json_path, 'w', encoding='utf-8') as f:
-                json.dump(final_structured_outputs, f, indent=4, ensure_ascii=False)
-            logging.info(f"Partial output for page {current_page_num} saved to: {output_json_path}")
-        except Exception as save_e:
-            logging.error(f"Error saving partial output after processing page {current_page_num} ({filename}): {save_e}")
+            # Step 1: Page classification
+            classification = classify_page(img_path)
+            normalized_class = normalize_classification(classification)
+            result["classification"] = normalized_class
+            logging.info(f"Classification: {normalized_class}")
+            
+            # Step 2: Date extraction for front pages
+            if normalized_class in ["Front Page", "External Front Cover", "Internal Front Cover"]:
+                date_str = extract_date_with_ocr(img_path)
+                if date_str:
+                    result["issue_date"] = date_str
+                    logging.info(f"Extracted date: {date_str}")
+                else:
+                    logging.warning("No date found on front page")
+            
+            # Step 3: Date validation
+            if result["issue_date"] != "N/A":
+                date_obj = parse_italian_date(result["issue_date"])
+                if date_obj:
+                    # Validate date range
+                    if not (min_date <= date_obj <= max_date):
+                        result["processing_errors"].append(
+                            f"Date {date_obj.strftime('%Y-%m-%d')} outside range "
+                            f"{args.start_date} to {args.end_date}"
+                        )
+                        result["issue_date"] = "N/A"
+                        date_range_valid = False
+                    # Validate chronology
+                    elif last_valid_date and date_obj < last_valid_date:
+                        result["processing_errors"].append(
+                            f"Date {date_obj.strftime('%Y-%m-%d')} is earlier than "
+                            f"previous date {last_valid_date.strftime('%Y-%m-%d')}"
+                        )
+                        result["issue_date"] = "N/A"
+                        date_range_valid = False
+                    else:
+                        # Valid date
+                        result["issue_date"] = date_obj.strftime('%Y-%m-%d')
+                        last_valid_date = date_obj
+                        date_range_valid = True
+                        logging.info(f"Validated date: {result['issue_date']}")
+                else:
+                    result["processing_errors"].append(
+                        f"Failed to parse date: {result['issue_date']}"
+                    )
+                    result["issue_date"] = "N/A"
+            
+        except Exception as e:
+            error_msg = f"Processing failed: {str(e)}"
+            logging.error(error_msg, exc_info=True)
+            result["processing_errors"].append(error_msg)
+        
+        # Save results
+        processed_data.append(result)
+        with open(output_json, 'w', encoding='utf-8') as f:
+            json.dump(processed_data, f, indent=2, ensure_ascii=False)
+        logging.info(f"Saved results for {filename}")
+    
+    logging.info("\nProcessing complete!")
+    logging.info(f"Results saved to: {output_json}")
 
-    # Final summary
-    logging.info("\n" + "="*80)
-    logging.info("FINAL COLLATED RESULTS FROM ALL PAGES")
-    logging.info("="*80)
-
-    if final_structured_outputs:
-        logging.info(f"Processing complete. All results saved to: {output_json_path}")
-    else:
-        logging.info("No outputs were generated from any page.")
-    logging.info("="*80)
-
-# --- Configuration ---
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-# --- Script Parameters ---
-parser = argparse.ArgumentParser(description="Process catalogue images with local multimodal model")
-parser.add_argument(
-    "--image-folder",
-    type=str,
-    default="imgs",
-    help="Path to the folder containing images to process."
-)
-parser.add_argument(
-    "--start-date",
-    type=str,
-    default="1946-07-21",
-    help="The start of the valid date range in YYYY-MM-DD format."
-)
-parser.add_argument(
-    "--end-date",
-    type=str,
-    default="1947-05-15",
-    help="The end of the valid date range in YYYY-MM-DD format."
-)
-parser.add_argument(
-    "--title",
-    type=str,
-    default="Resto del Carlino",
-    help="Titolo della testata"
-)
-args = parser.parse_args()
-
-IMAGE_FOLDER = args.image_folder
-title = args.title
-
-SUPPORTED_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff')
-OUTPUT_JSON_FILENAME = os.path.basename(os.path.normpath(IMAGE_FOLDER)) + ".json"
-
+# --- Argument Parsing ---
 if __name__ == "__main__":
-    run_api_based_inference()
+    # parser = argparse.ArgumentParser(description="Italian Newspaper Processor")
+    # parser.add_argument("--image-folder", required=True, 
+    #                     help="Folder containing newspaper images")
+    # parser.add_argument("--start-date", default="1946-07-21",
+    #                     help="Earliest valid date (YYYY-MM-DD)")
+    # parser.add_argument("--end-date", default="1947-05-15",
+    #                     help="Latest valid date (YYYY-MM-DD)")
+    # parser.add_argument("--title", default="Resto del Carlino",
+    #                     help="Newspaper title")
+    
+    class Args:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        def __init__(self):
+            self.image_folder = os.path.join(self.script_dir, "imgs")
+            self.start_date = "1946-07-21"
+            self.end_date = "1947-05-15"
+            self.title = "Resto del Carlino"
+    
+    args = Args()
+    IMAGE_FOLDER = args.image_folder
+    
+    # Verify image folder
+    if not os.path.exists(IMAGE_FOLDER):
+        logging.error(f"Image folder not found: {IMAGE_FOLDER}")
+        exit(1)
+    
+    process_newspaper_images()
+    
+    # Verify Tesseract
+    if not os.path.exists(TESSERACT_PATH):
+        logging.warning("Tesseract not found - OCR features disabled")
+    
+    process_newspaper_images()

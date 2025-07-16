@@ -1,7 +1,6 @@
 torch
 torchvision
-opencv-python-headless
 craft-text-detector-updated
-dateparser
+sentence-transformers
 pytesseract
 lxml

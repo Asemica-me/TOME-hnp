@@ -14,7 +14,7 @@ The project explores techniques in:
 
 - Metadata Extraction and Structuring
 
-
+<br>
 
 ## Source Data
 The source data used in this project consists of a digitized collection of historical newspapers originally preserved on microfilm reels.
@@ -31,7 +31,7 @@ Due to licensing restrictions and data protection considerations, the following 
 
 ## 🔍 Contact
 
-This work is conducted as part of a curricular internship at the Digital Humanities Advanced Research Centre (DH.ARC) and the ADLab - research centers within the University of Bologna.
+This work is conducted as part of a curricular internship at the DH.ARC / ADLab - research centers within the University of Bologna.
 
 Lucrezia Pograri<br>
 <i>MA student in Digital Humanities and Digital Knowledge (DHDK)</i><br>
