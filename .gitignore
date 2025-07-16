@@ -1,3 +1,7 @@
+.gitignore
 catalog-UNIMARCXML-20241028-145728.xml
-img/
+imgs/
 script_paolo.py
+.venv/
+catalog/
+.env
