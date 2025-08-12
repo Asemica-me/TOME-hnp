@@ -6,3 +6,4 @@ script_paolo.py
 catalog/
 .env
 script_lu.log
+logs/

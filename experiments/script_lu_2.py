@@ -11,35 +11,31 @@ import pytesseract
 from sentence_transformers import SentenceTransformer, util
 import torch
 import difflib
-import numpy as np
-import cv2
 from dotenv import load_dotenv
 load_dotenv()
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Configure logging first
+root_dir = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
+logs_folder = os.path.join(root_dir, 'logs')
+os.makedirs(logs_folder, exist_ok=True)
+
+log_file_path = os.path.join(logs_folder, "script_lu.log")
+
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler("script_lu.log")
+        logging.FileHandler(log_file_path)
     ]
 )
 
-# Get project root and build paths
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Create imgs folder if it doesn't exist
-imgs_folder = os.path.join(PROJECT_ROOT, 'imgs')
-os.makedirs(imgs_folder, exist_ok=True)
-
-# Update image folder path
-IMAGE_FOLDER = imgs_folder
+IMAGE_FOLDER = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'imgs'))
+CATALOG_PATH = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'catalog', 'catalog_cleaned.xml'))
 START_DATE = os.getenv('START_DATE', '1946-07-21')
 END_DATE = os.getenv('END_DATE', '1947-05-15')
 NEWSPAPER_TITLE = os.getenv('NEWSPAPER_TITLE', 'Resto del Carlino')
-
 
 # Configure Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -94,108 +90,77 @@ def configure_ocr():
         logging.warning(f"Tesseract path not found: {tesseract_path}")
 
 # --- Front Page Verification ---
-def is_valid_front_page(image_path, headtitles, min_ratio=0.5):
+def is_valid_front_page(image_path, headtitles, min_ratio=0.4):
     """
-    Optimized headtitle verification for large, bold cubital letters
+    Optimized headtitle verification for full-width top region
     """
     try:
         img = Image.open(image_path)
         width, height = img.size
 
-        # Define full-width top region (top 15% of page)
-        region = (0, 0, width, int(height * 0.15))
+        # Define full-width top region (top 10% of page)
+        region = (0, 0, width, int(height * 0.08))
         cropped = img.crop(region)
-        
-        # Save original cropped region
-        original_cropped = cropped.copy()
-        
-        # Specialized preprocessing for cubital letters
+
+        # Optimized preprocessing for newspaper headlines
         def preprocess(image):
             # Convert to grayscale
             img_gray = image.convert('L')
             
-            # Apply aggressive binarization for bold text
-            img_np = np.array(img_gray)
-            _, img_binary = cv2.threshold(img_np, 200, 255, cv2.THRESH_BINARY)
+            # Enhance contrast
+            img_contrast = Image.eval(img_gray, lambda x: 0 if x < 100 else 255)
             
-            # Apply morphological operations to clean up text
-            kernel = np.ones((3, 3), np.uint8)
-            img_processed = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel)
-            
-            return Image.fromarray(img_processed)
+            # Upscale for better OCR
+            img_large = img_contrast.resize(
+                (img_contrast.width * 2, img_contrast.height * 2),
+                Image.LANCZOS
+            )
+            return img_large
 
         processed = preprocess(cropped)
         
-        # Display preprocessed images
-        print(f"\n{'='*50}")
-        print(f"Processing: {os.path.basename(image_path)}")
-        print(f"{'='*50}")
-        
-        # Specialized OCR configuration for large, bold text
+        # OCR with newspaper-optimized configuration
         text = pytesseract.image_to_string(
             processed,
             lang='ita',
             config=(
-                "--psm 7 "
-                "--oem 1 "
-                "-c textord_heavy_nr=1 "
-                "-c textord_old_xheight=0 "
-                "-c textord_min_xheight=50 "
-                "-c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
-                "-c language_model_penalty_non_dict_word=0.1 "
-                "-c language_model_penalty_non_freq_dict_word=0.1"
+                '--psm 6 '        # Assume uniform block of text
+                '--oem 3 '        # LSTM + Legacy engine
+                '-c preserve_interword_spaces=1 '
+                '-c tessedit_char_blacklist=|\\><[]{}`~_^'
             )
-        ).upper().strip()  # Convert to uppercase for consistency with cubital letters
+        ).lower()
 
-        # Clean and normalize text - preserve decorative characters
+        # Clean and normalize text
         clean_text = re.sub(r'\s+', ' ', text)  # Collapse whitespace
+        clean_text = re.sub(r'[^\w\s]', '', clean_text).strip()
         logging.info(f"OCR headtitle text: '{clean_text}'")
-        print(f"Extracted Text: '{clean_text}'")
 
-        # Enhanced matching for decorative text
-        normalized_ocr = re.sub(r'[^A-Z\s]', '', clean_text)  # Remove non-alphabetic except spaces
-        normalized_ocr = re.sub(r'\s+', ' ', normalized_ocr).strip()
+        # Target headtitle variations
+        target_titles = [
+            "giornale dell emilia",
+            "il giornale dell emilia",
+            "giornale emilia"
+        ]
         
-        # Check against all headtitles with multiple matching strategies
-        for headtitle in headtitles:
-            # Normalize headtitle to uppercase and remove special chars
-            normalized_head = re.sub(r'[^A-Z\s]', '', headtitle.upper())
-            normalized_head = re.sub(r'\s+', ' ', normalized_head).strip()
-            
-            # 1. Direct match with decorations
-            if headtitle.upper() in clean_text:
-                logging.info(f"Direct decorative match: '{headtitle}'")
-                print(f"✓ Direct decorative match: '{headtitle}'")
+        # Check for direct matches first
+        for title in target_titles:
+            if title in clean_text:
+                logging.info(f"Exact headtitle match: '{title}'")
                 return True
-                
-            # 2. Normalized match
-            if normalized_head == normalized_ocr:
-                logging.info(f"Exact normalized match: '{headtitle}'")
-                print(f"✓ Exact normalized match: '{headtitle}'")
-                return True
-                
-            # 3. Fuzzy match with length consideration
-            ratio = difflib.SequenceMatcher(None, normalized_head, normalized_ocr).ratio()
+        
+        # Fuzzy match as fallback
+        for title in target_titles:
+            ratio = difflib.SequenceMatcher(None, title, clean_text).ratio()
             if ratio >= min_ratio:
-                logging.info(f"Fuzzy headtitle match: '{headtitle}' (ratio: {ratio:.2f})")
-                print(f"✓ Fuzzy match: '{headtitle}' (ratio: {ratio:.2f})")
-                return True
-                
-            # 4. Character set match (for decorative text)
-            head_chars = set(normalized_head.replace(' ', ''))
-            ocr_chars = set(normalized_ocr.replace(' ', ''))
-            if head_chars.issubset(ocr_chars) and len(ocr_chars) <= len(head_chars) + 2:
-                logging.info(f"Character set match: '{headtitle}'")
-                print(f"✓ Character set match: '{headtitle}'")
+                logging.info(f"Headtitle fuzzy match: '{title}' (ratio: {ratio:.2f})")
                 return True
 
-        logging.warning(f"No headtitle match found. Best text: '{clean_text}'")
-        print(f"⚠ No match found")
+        logging.warning(f"No headtitle match found. Best text: '{clean_text[:50]}...'")
         return False
 
     except Exception as e:
         logging.error(f"Headtitle verification failed: {str(e)}")
-        print(f"Error: {str(e)}")
         return False
 
 # --- Date Extraction Improvements ---
@@ -337,7 +302,7 @@ def classify_page(image_path, headtitles):
 # --- Main Processing Function ---
 def process_newspaper_images():
     # Load headtitles from catalog
-    catalog_path = os.path.join("catalog", "catalog_cleaned.xml")
+    catalog_path = CATALOG_PATH
     headtitles = []
     if os.path.exists(catalog_path):
         headtitles = load_headtitles(catalog_path)
@@ -355,10 +320,9 @@ def process_newspaper_images():
     # Configure OCR
     configure_ocr()
     
-    # Setup output
-    output_folder = "output"
+    output_folder = os.path.join(root_dir, "output")
     os.makedirs(output_folder, exist_ok=True)
-    output_json = os.path.join(output_folder, f"extraction_output.json")
+    output_json = os.path.join(output_folder, "extraction_l_optimized.json")
     
     # Load existing results
     processed_data = {}
@@ -457,7 +421,7 @@ def process_newspaper_images():
         processed_data[filename] = result
 
     # --- Write deduplicated results ---
-    output_json = os.path.join("output", "extraction_output.json")
+    #output_json = os.path.join(output_folder, "extraction_output.json")
     with open(output_json, 'w', encoding='utf-8') as f:
         json.dump(list(processed_data.values()), f, indent=2, ensure_ascii=False)
     logging.info(f"Results saved to: {output_json}")

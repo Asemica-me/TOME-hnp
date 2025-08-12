@@ -14,30 +14,28 @@ import difflib
 from dotenv import load_dotenv
 load_dotenv()
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Configure logging first
+root_dir = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
+logs_folder = os.path.join(root_dir, 'logs')
+os.makedirs(logs_folder, exist_ok=True)
+
+log_file_path = os.path.join(logs_folder, "script_lu.log")
+
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler("script_lu.log")
+        logging.FileHandler(log_file_path)
     ]
 )
 
-# Get project root and build paths
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Create imgs folder if it doesn't exist
-imgs_folder = os.path.join(PROJECT_ROOT, 'imgs')
-os.makedirs(imgs_folder, exist_ok=True)
-
-# Update image folder path
-IMAGE_FOLDER = imgs_folder
+IMAGE_FOLDER = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'imgs'))
+CATALOG_PATH = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'catalog', 'catalog_cleaned.xml'))
 START_DATE = os.getenv('START_DATE', '1946-07-21')
 END_DATE = os.getenv('END_DATE', '1947-05-15')
 NEWSPAPER_TITLE = os.getenv('NEWSPAPER_TITLE', 'Resto del Carlino')
-
 
 # Configure Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -304,7 +302,7 @@ def classify_page(image_path, headtitles):
 # --- Main Processing Function ---
 def process_newspaper_images():
     # Load headtitles from catalog
-    catalog_path = os.path.join("catalog", "catalog_cleaned.xml")
+    catalog_path = CATALOG_PATH
     headtitles = []
     if os.path.exists(catalog_path):
         headtitles = load_headtitles(catalog_path)
@@ -323,9 +321,9 @@ def process_newspaper_images():
     configure_ocr()
     
     # Setup output
-    output_folder = "output"
+    output_folder = os.path.join(root_dir, "output")
     os.makedirs(output_folder, exist_ok=True)
-    output_json = os.path.join(output_folder, f"extraction_output.json")
+    output_json = os.path.join(output_folder, "extraction_l.json")
     
     # Load existing results
     processed_data = {}
@@ -424,7 +422,7 @@ def process_newspaper_images():
         processed_data[filename] = result
 
     # --- Write deduplicated results ---
-    output_json = os.path.join("output", "extraction_output.json")
+    #output_json = os.path.join(output_folder, "extraction_output.json")
     with open(output_json, 'w', encoding='utf-8') as f:
         json.dump(list(processed_data.values()), f, indent=2, ensure_ascii=False)
     logging.info(f"Results saved to: {output_json}")
