@@ -1,0 +1,631 @@
+2025-08-12 20:00:51,372 - INFO - Script started.
+2025-08-12 20:00:51,374 - INFO - No existing output file found at c:\Users\Lucrezia\Documents\GitHub\TOME-hnp\imgs\imgs.json. Starting fresh.
+2025-08-12 20:00:51,374 - INFO - Loading Pixtral model...
+2025-08-12 20:08:11,436 - INFO - Script started.
+2025-08-12 20:08:11,436 - INFO - No existing output file found at C:\Users\Lucrezia\Documents\GitHub\TOME-hnp\imgs\imgs.json. Starting fresh.
+2025-08-12 20:08:11,436 - INFO - Loading Pixtral model...
+2025-08-12 20:10:36,610 - ERROR - Error processing catalog: junk after document element: line 3, column 2
+2025-08-12 20:10:36,610 - INFO - Tesseract configured successfully
+2025-08-12 20:10:36,634 - INFO - Found 100 images to process
+2025-08-12 20:10:36,639 - INFO - 
+========================================
+2025-08-12 20:10:36,639 - INFO - Processing page 1/100: UBOBU_UBO8306198_277667_0001.jpg
+2025-08-12 20:10:36,639 - INFO - ========================================
+2025-08-12 20:10:37,789 - INFO - OCR headtitle text: ''
+2025-08-12 20:10:37,789 - WARNING - No headtitle match found. Best text: '...'
+2025-08-12 20:10:37,789 - INFO - Use pytorch device_name: cpu
+2025-08-12 20:10:37,789 - INFO - Load pretrained SentenceTransformer: clip-ViT-B-32
+2025-08-12 20:10:43,327 - INFO - Multimodal model loaded successfully
+2025-08-12 20:10:44,252 - INFO - 
+========================================
+2025-08-12 20:10:44,252 - INFO - Processing page 2/100: UBOBU_UBO8306198_277667_0002.jpg
+2025-08-12 20:10:44,252 - INFO - ========================================
+2025-08-12 20:10:44,513 - INFO - OCR headtitle text: 'sa è'
+2025-08-12 20:10:44,513 - WARNING - No headtitle match found. Best text: 'sa è...'
+2025-08-12 20:10:44,794 - INFO - 
+========================================
+2025-08-12 20:10:44,794 - INFO - Processing page 3/100: UBOBU_UBO8306198_277667_0003.jpg
+2025-08-12 20:10:44,796 - INFO - ========================================
+2025-08-12 20:10:45,046 - INFO - OCR headtitle text: 'n sì'
+2025-08-12 20:10:45,046 - WARNING - No headtitle match found. Best text: 'n sì...'
+2025-08-12 20:10:45,381 - INFO - 
+========================================
+2025-08-12 20:10:45,381 - INFO - Processing page 4/100: UBOBU_UBO8306198_277667_0004.jpg
+2025-08-12 20:10:45,381 - INFO - ========================================
+2025-08-12 20:10:45,628 - INFO - OCR headtitle text: 'eiièinglemuiiiigbdaìiiizza'
+2025-08-12 20:10:45,628 - WARNING - No headtitle match found. Best text: 'eiièinglemuiiiigbdaìiiizza...'
+2025-08-12 20:10:45,902 - INFO - 
+========================================
+2025-08-12 20:10:45,902 - INFO - Processing page 5/100: UBOBU_UBO8306198_277667_0005.jpg
+2025-08-12 20:10:45,902 - INFO - ========================================
+2025-08-12 20:10:46,140 - INFO - OCR headtitle text: 'eea'
+2025-08-12 20:10:46,140 - WARNING - No headtitle match found. Best text: 'eea...'
+2025-08-12 20:10:46,403 - INFO - 
+========================================
+2025-08-12 20:10:46,404 - INFO - Processing page 6/100: UBOBU_UBO8306198_277667_0006.jpg
+2025-08-12 20:10:46,404 - INFO - ========================================
+2025-08-12 20:10:46,709 - INFO - OCR headtitle text: 'ì   pane bieezione è sussieazione boogmat ttt guotidiano indipendente della valle padana seei merci onu domenica  21 luglio 1946'
+2025-08-12 20:10:46,709 - WARNING - No headtitle match found. Best text: 'ì   pane bieezione è sussieazione boogmat ttt guot...'
+2025-08-12 20:10:46,988 - INFO - 
+========================================
+2025-08-12 20:10:46,988 - INFO - Processing page 7/100: UBOBU_UBO8306198_277667_0007.jpg
+2025-08-12 20:10:46,988 - INFO - ========================================
+2025-08-12 20:10:47,482 - INFO - OCR headtitle text: 'er tp dip sv vifibiboride è psr tt  no e tetti  giornale dellemilia uc celesti ci mi lo  lesportazion  po onaca di bolo gn ana romanz della canaba a egfieziane gonnimina tolla moguinnia  rraneni mpasemmi  perni to voce purga d ornal'
+2025-08-12 20:10:47,482 - WARNING - No headtitle match found. Best text: 'er tp dip sv vifibiboride è psr tt  no e tetti  gi...'
+2025-08-12 20:10:47,740 - INFO - 
+========================================
+2025-08-12 20:10:47,740 - INFO - Processing page 8/100: UBOBU_UBO8306198_277667_0008.jpg
+2025-08-12 20:10:47,741 - INFO - ========================================
+2025-08-12 20:10:48,358 - INFO - OCR headtitle text: 'e nen msi ma  etoenale dellemilta   nai lo wii nin giornale dellemilta remittente vduia romanzo la piu preziosa reliquia della cristianità bil rormla o 6 di ra 34 x p bilancio male tm p erg di un tornerà a torino dellintervento in russia i fic 1227 e pia siornale 11 ti  i 0  9 ein da tant i ian i i'
+2025-08-12 20:10:48,358 - WARNING - No headtitle match found. Best text: 'e nen msi ma  etoenale dellemilta   nai lo wii nin...'
+2025-08-12 20:11:04,741 - INFO - 
+========================================
+2025-08-12 20:11:04,743 - INFO - Processing page 9/100: UBOBU_UBO8306198_277667_0009.jpg
+2025-08-12 20:11:04,743 - INFO - ========================================
+2025-08-12 20:11:05,201 - INFO - OCR headtitle text: 'all afteni ten il è n le qne con beni fn elia eee ti f ni a   i certe soduatrinl sheila so è ministero 0 sen are î a alpino i luglio sa da'
+2025-08-12 20:11:05,202 - WARNING - No headtitle match found. Best text: 'all afteni ten il è n le qne con beni fn elia eee ...'
+2025-08-12 20:11:05,474 - INFO - 
+========================================
+2025-08-12 20:11:05,474 - INFO - Processing page 10/100: UBOBU_UBO8306198_277667_0010.jpg
+2025-08-12 20:11:05,474 - INFO - ========================================
+2025-08-12 20:11:05,768 - INFO - OCR headtitle text: '312608 c  leale ni pr ine and edizione del lunembpt o'
+2025-08-12 20:11:05,768 - WARNING - No headtitle match found. Best text: '312608 c  leale ni pr ine and edizione del lunembp...'
+2025-08-12 20:11:05,998 - INFO - 
+========================================
+2025-08-12 20:11:05,998 - INFO - Processing page 11/100: UBOBU_UBO8306198_277667_0011.jpg
+2025-08-12 20:11:05,998 - INFO - ========================================
+2025-08-12 20:11:06,619 - INFO - OCR headtitle text: 'è r rr  giornale dellemilia   iti iii cronaca di bologna m i coni a ria n fo spento ao nei aa ri el n3 sie o person dino 1 i  21 fi  1 r  n  n  im rrtmr nano nate soma uh fama eta gi anoti 20 i maga carichi e supplenze o   merino eer micia ia iii o ro  ii alnnrerinalina dh i supplenze e toe a elmreanntana fra telfra 900 dacqua abete siete i sat te direzione  amm nistrazio'
+2025-08-12 20:11:06,619 - WARNING - No headtitle match found. Best text: 'è r rr  giornale dellemilia   iti iii cronaca di b...'
+2025-08-12 20:11:06,851 - INFO - 
+========================================
+2025-08-12 20:11:06,851 - INFO - Processing page 12/100: UBOBU_UBO8306198_277667_0012.jpg
+2025-08-12 20:11:06,851 - INFO - ========================================
+2025-08-12 20:11:07,137 - INFO - OCR headtitle text: 'ae zipzione e ammmistrazione bolognk st ume csc quotidiano indipendente della valle padana soctmabcenecozi mari edi  23 tuglio 194'
+2025-08-12 20:11:07,137 - WARNING - No headtitle match found. Best text: 'ae zipzione e ammmistrazione bolognk st ume csc qu...'
+2025-08-12 20:11:33,813 - INFO - Date found in full-page scan: 25 Luglio 1946
+2025-08-12 20:11:33,813 - INFO - 
+========================================
+2025-08-12 20:11:33,813 - INFO - Processing page 13/100: UBOBU_UBO8306198_277667_0013.jpg
+2025-08-12 20:11:33,813 - INFO - ========================================
+2025-08-12 20:11:34,136 - INFO - OCR headtitle text: ''
+2025-08-12 20:11:34,136 - WARNING - No headtitle match found. Best text: '...'
+2025-08-12 20:11:34,348 - INFO - 
+========================================
+2025-08-12 20:11:34,348 - INFO - Processing page 14/100: UBOBU_UBO8306198_277667_0014.jpg
+2025-08-12 20:11:34,348 - INFO - ========================================
+2025-08-12 20:11:34,827 - INFO - OCR headtitle text: 'aat donna eee ento e rt tg regina coeli rand buone ui  î  vota più foche cina tutt ca put hit inifpti fiji p star  47 ti i a 1  ss sri 10 aureliasto senfti ze reiti inferno dei vivi divirgilio brocchi'
+2025-08-12 20:11:34,827 - WARNING - No headtitle match found. Best text: 'aat donna eee ento e rt tg regina coeli rand buone...'
+2025-08-12 20:11:51,353 - INFO - 
+========================================
+2025-08-12 20:11:51,353 - INFO - Processing page 15/100: UBOBU_UBO8306198_277667_0015.jpg
+2025-08-12 20:11:51,353 - INFO - ========================================
+2025-08-12 20:11:52,416 - INFO - OCR headtitle text: 'li ll diari ri n  cl 7  giornale dellemilia x cnc era cdi   forni tizi piccola pubblicita et mana e favealieniai0a vverusalemme lo sciopero dei camerie fot rete e tti nea  tie  e 8 acqours feenio stabile nè per i guali è riala chesta lammiglia  a antato periferia alta cmita  av ufp si mmiorelati   vu mov lo cassata 2307 1 roma 2 jugiio sj  sen e pero  li ro deere alberto marchesini 5 rusiee  è cav z cera t avtisto corone 3 tp tona nio cd a  ha rafciazolne i rr ee haloene ue 1 ma opa 5 1009 scalig aopara i ne dertena mé è cabone gia a ne tomas 22 luglio tric 20 fissazia e oaranzia agr ls roro site ti agi ee a sete rei seg ne a è bi dan per lc    fronti di fipgo na filu lagnazioni o  del del minimi tg 321 11c07 vere al vend ian vi minare di kimi  vee è pg nfronti di fipss nat filu o lagitazione de lavnratari de sei bin radpazi pol i5998 sroverna ala fivendiia port lafpartamento conuie gate 0 ere ganone dl direzione è amm mistrazi e e aa cilea rn i lora peter ga ione vip momishallo  leleiaa'
+2025-08-12 20:11:52,416 - WARNING - No headtitle match found. Best text: 'li ll diari ri n  cl 7  giornale dellemilia x cnc ...'
+2025-08-12 20:11:52,747 - INFO - 
+========================================
+2025-08-12 20:11:52,747 - INFO - Processing page 16/100: UBOBU_UBO8306198_277667_0016.jpg
+2025-08-12 20:11:52,747 - INFO - ========================================
+2025-08-12 20:11:53,325 - INFO - OCR headtitle text: 'i i    te i  ld eni 24 hesinl ni  cu direzione è amm nistrazione bologna  ionoment dit ru otidiano indipen dente della valle padana sprd ta pia peetaie gioie mercoledi  24 lugllo 1946 nl è ti seul iis  bui h ò e ue ei oaà ii dea ian dà è lita uaprella nodatn0ae n dè anno 1  n 195  una copia l 5'
+2025-08-12 20:11:53,325 - WARNING - No headtitle match found. Best text: 'i i    te i  ld eni 24 hesinl ni  cu direzione è a...'
+2025-08-12 20:11:53,660 - INFO - 
+========================================
+2025-08-12 20:11:53,661 - INFO - Processing page 17/100: UBOBU_UBO8306198_277667_0017.jpg
+2025-08-12 20:11:53,661 - INFO - ========================================
+2025-08-12 20:11:54,220 - INFO - OCR headtitle text: 'î giornale dellemilia    uu alice 4 nssifianziai  im niacca picola pubblinta iminiicronaca di bolo ta ran i tranyai impazziti ma uta acenlin salgari 1046 pn to a donna iolintiamente ca astfrarie  pei paterno  anita ti direzione  amm nistrazio'
+2025-08-12 20:11:54,220 - WARNING - No headtitle match found. Best text: 'î giornale dellemilia    uu alice 4 nssifianziai  ...'
+2025-08-12 20:11:54,465 - INFO - 
+========================================
+2025-08-12 20:11:54,465 - INFO - Processing page 18/100: UBOBU_UBO8306198_277667_0018.jpg
+2025-08-12 20:11:54,466 - INFO - ========================================
+2025-08-12 20:11:54,995 - INFO - OCR headtitle text: 'dipei ome  amm mistrazione bologna camus la quotidiano indipendente della valle padana seciicstb posero  giovedi  25 luglio 1986 i dariictia il rini dici seni abbonamenti eninvic è   10 n teo  tai  cee essa ca si sl o i canta renzente num tetevo aaa to a n tina ana e'
+2025-08-12 20:11:54,995 - WARNING - No headtitle match found. Best text: 'dipei ome  amm mistrazione bologna camus la quotid...'
+2025-08-12 20:11:55,346 - INFO - 
+========================================
+2025-08-12 20:11:55,346 - INFO - Processing page 19/100: UBOBU_UBO8306198_277667_0019.jpg
+2025-08-12 20:11:55,346 - INFO - ========================================
+2025-08-12 20:11:55,859 - INFO - OCR headtitle text: 'a o giornale dellemilia ll e ie 7 tt o cronaca di bologna uli cargo crrona  di vivere i ni dai tribunetta del cittadino  consiglio comunale aperta lo caccia t tranvai impazziti sabato a cattolica gel centrali di smpro rin fibre criklt  n'
+2025-08-12 20:11:55,859 - WARNING - No headtitle match found. Best text: 'a o giornale dellemilia ll e ie 7 tt o cronaca di ...'
+2025-08-12 20:11:56,193 - INFO - 
+========================================
+2025-08-12 20:11:56,193 - INFO - Processing page 20/100: UBOBU_UBO8306198_277667_0020.jpg
+2025-08-12 20:11:56,198 - INFO - ========================================
+2025-08-12 20:11:56,602 - INFO - OCR headtitle text: 'è a la gioia   smevg essre lesercito ei simboli pane e spaghetti i  di vivere di costano miliardi'
+2025-08-12 20:11:56,602 - WARNING - No headtitle match found. Best text: 'è a la gioia   smevg essre lesercito ei simboli pa...'
+2025-08-12 20:12:15,411 - INFO - 
+========================================
+2025-08-12 20:12:15,411 - INFO - Processing page 21/100: UBOBU_UBO8306198_277667_0021.jpg
+2025-08-12 20:12:15,411 - INFO - ========================================
+2025-08-12 20:12:15,827 - INFO - OCR headtitle text: 'lo s00ra10 della seconda bomba 2 birdni fatgle vietto primo qa briangon la ina e 13 n o in ann flarnna ci pleua mar 700 meipi seguito da crippa e baito cl rr'
+2025-08-12 20:12:15,841 - WARNING - No headtitle match found. Best text: 'lo s00ra10 della seconda bomba 2 birdni fatgle vie...'
+2025-08-12 20:12:16,193 - INFO - 
+========================================
+2025-08-12 20:12:16,193 - INFO - Processing page 22/100: UBOBU_UBO8306198_277667_0022.jpg
+2025-08-12 20:12:16,193 - INFO - ========================================
+2025-08-12 20:12:16,838 - INFO - OCR headtitle text: 'o brr lite n sd il di lr ii  0 motandri     ini dla  rr     i 2 e ti n  le gr mol a  cpezione  amm misirazione bolcgha iosomemi at 0 quotidiano indipend ente della valle padana io sped bb ponnimoselagg venerdì 26 lugliia 1946 boa sfirasthalia a balalina af suse fio c atidim 1 a 32 mii esta fancesa sfpenp nsnendenta  tri 12001 tariffa per mril altezza jacgh wma caio loizi 89 raga lo tu caanle aoatil en 2 e anno i n 291  una copia 1'
+2025-08-12 20:12:16,838 - WARNING - No headtitle match found. Best text: 'o brr lite n sd il di lr ii  0 motandri     ini dl...'
+2025-08-12 20:12:52,689 - INFO - Date found in full-page scan: 26 Luglio 1946
+2025-08-12 20:12:52,689 - INFO - 
+========================================
+2025-08-12 20:12:52,689 - INFO - Processing page 23/100: UBOBU_UBO8306198_277667_0023.jpg
+2025-08-12 20:12:52,689 - INFO - ========================================
+2025-08-12 20:12:53,417 - INFO - OCR headtitle text: 'dea rsrr ttttm li dellemilia cronaca di bologna mm patani riplla npanincia phioriano pre tt da driomuseore det provino e re e alia e i oa rsoro fpsattatiire direzione  amm histrazion'
+2025-08-12 20:12:53,417 - WARNING - No headtitle match found. Best text: 'dea rsrr ttttm li dellemilia cronaca di bologna mm...'
+2025-08-12 20:12:53,809 - INFO - 
+========================================
+2025-08-12 20:12:53,809 - INFO - Processing page 24/100: UBOBU_UBO8306198_277667_0024.jpg
+2025-08-12 20:12:53,809 - INFO - ========================================
+2025-08-12 20:12:54,340 - INFO - OCR headtitle text: 'è i tini tri tt ppt pti1èèl ll t1tt11111 1ttttt 1eeeddre te  i   è i ari e dii ire direzione è am nistrazione bgicona  na quotidiano indipendente della valle padana seetnariosotii  sabato  27 luglio 1546'
+2025-08-12 20:12:54,341 - WARNING - No headtitle match found. Best text: 'è i tini tri tt ppt pti1èèl ll t1tt11111 1ttttt 1e...'
+2025-08-12 20:12:54,751 - INFO - 
+========================================
+2025-08-12 20:12:54,751 - INFO - Processing page 25/100: UBOBU_UBO8306198_277667_0025.jpg
+2025-08-12 20:12:54,751 - INFO - ========================================
+2025-08-12 20:12:55,828 - INFO - OCR headtitle text: 'ks tti mn   o 0vgiornale dillimilia 66 oe o n a c lento gie 17 sog asi im oi piccola pubblicità  è sipaenrie diima dea de  k tt tc  yrssi ii ze ei é   pror  tuesh spprrtamenti e terreni 2 6 n  pletro suardl affittasi vipuna fto radi 1  sri eni ta niaflanto rai insnnalnivi hd rao   i e ca metà sv eè fd erfà i spettacoli doggi ss è snia a onszai di a de sei net  ss iaia  ri rf at gli e tit necirilezono po è fid ga direzione  amm ristrazione re e 0 i ip t alture fori reilacli ia montebello so leleloni 42'
+2025-08-12 20:12:55,828 - WARNING - No headtitle match found. Best text: 'ks tti mn   o 0vgiornale dillimilia 66 oe o n a c ...'
+2025-08-12 20:12:56,194 - INFO - 
+========================================
+2025-08-12 20:12:56,194 - INFO - Processing page 26/100: UBOBU_UBO8306198_277667_0026.jpg
+2025-08-12 20:12:56,194 - INFO - ========================================
+2025-08-12 20:12:56,652 - INFO - OCR headtitle text: 'l a   7 dilboe è cono ttt no ti ella valle padana smmezeregiti  domenica  28 luglio 1946'
+2025-08-12 20:12:56,652 - WARNING - No headtitle match found. Best text: 'l a   7 dilboe è cono ttt no ti ella valle padana ...'
+2025-08-12 20:12:57,111 - INFO - 
+========================================
+2025-08-12 20:12:57,111 - INFO - Processing page 27/100: UBOBU_UBO8306198_277667_0027.jpg
+2025-08-12 20:12:57,111 - INFO - ========================================
+2025-08-12 20:12:57,572 - INFO - OCR headtitle text: 'llemilia 4 sporta cl solleltino del tempo  la te hh n li li coli doggi i fiiceertaziaro lene della canapa  mrimiarttità er sivtatnnno  albergo e mensa imcue miliardi imomasiamii nrauvarimanil ue e cono rat ire d 06 bree na'
+2025-08-12 20:12:57,572 - WARNING - No headtitle match found. Best text: 'llemilia 4 sporta cl solleltino del tempo  la te h...'
+2025-08-12 20:12:58,017 - INFO - 
+========================================
+2025-08-12 20:12:58,017 - INFO - Processing page 28/100: UBOBU_UBO8306198_277667_0028.jpg
+2025-08-12 20:12:58,017 - INFO - ========================================
+2025-08-12 20:12:58,413 - INFO - OCR headtitle text: 'l   giornale dellemilia ni di mem la testa leoni a volonta 1 liti'
+2025-08-12 20:12:58,413 - INFO - Headtitle fuzzy match: 'giornale dell emilia' (ratio: 0.45)
+2025-08-12 20:13:18,372 - INFO - 
+========================================
+2025-08-12 20:13:18,388 - INFO - Processing page 29/100: UBOBU_UBO8306198_277667_0029.jpg
+2025-08-12 20:13:18,388 - INFO - ========================================
+2025-08-12 20:13:19,096 - INFO - OCR headtitle text: '1 rtrmmmt6irnale dellemilia  ii de  palazzo margherita e  d i piccola pubblicita   o la pace è un compromesso 25 leoni con un brillante finale 0 de lio gie cr amairnccha miti il iaa ca di e i 34 255 vince la 4 fappa del piccolo tour isso aupeta laltima contonma riî puro i e vince ta bp picco e ire prati n'
+2025-08-12 20:13:19,097 - WARNING - No headtitle match found. Best text: '1 rtrmmmt6irnale dellemilia  ii de  palazzo marghe...'
+2025-08-12 20:13:19,457 - INFO - 
+========================================
+2025-08-12 20:13:19,457 - INFO - Processing page 30/100: UBOBU_UBO8306198_277667_0030.jpg
+2025-08-12 20:13:19,457 - INFO - ========================================
+2025-08-12 20:13:19,818 - INFO - OCR headtitle text: 'giornale dell emilia'
+2025-08-12 20:13:19,818 - INFO - Exact headtitle match: 'giornale dell emilia'
+2025-08-12 20:13:33,087 - INFO - Date found in full-page scan: 29 luglio 1946
+2025-08-12 20:13:33,087 - INFO - 
+========================================
+2025-08-12 20:13:33,087 - INFO - Processing page 31/100: UBOBU_UBO8306198_277667_0031.jpg
+2025-08-12 20:13:33,087 - INFO - ========================================
+2025-08-12 20:13:33,435 - INFO - OCR headtitle text: 'i  i  tt 221 ceannmina finamzianinit ca rcceivogiunchi dacque t handiti di castelfranco ares tza o ieminne e prati'
+2025-08-12 20:13:33,435 - WARNING - No headtitle match found. Best text: 'i  i  tt 221 ceannmina finamzianinit ca rcceivogiu...'
+2025-08-12 20:13:33,698 - INFO - 
+========================================
+2025-08-12 20:13:33,698 - INFO - Processing page 32/100: UBOBU_UBO8306198_277667_0032.jpg
+2025-08-12 20:13:33,698 - INFO - ========================================
+2025-08-12 20:13:34,278 - INFO - OCR headtitle text: 'geitano valla  ù g or  giredione  sed msstrazione bologna ttt n  via momrelielio  jyielamo iv42 232m abbonamenti ei  pila a de n te dell ad serene naro diro mm ei e quotidiano indipende nte della valle padana ssrtiner soireò feat 5 tra uhrl 1 concert adi   è è sc diet carta da d l i etna l 420 tercifita chase sicap indipendenza b tel nei me ne ltt fal cu tao  nno h n 26  una copio l ea narala n a dimo lod a par ulize sio taue baia one sie n 218 anno il  n 20'
+2025-08-12 20:13:34,278 - WARNING - No headtitle match found. Best text: 'geitano valla  ù g or  giredione  sed msstrazione ...'
+2025-08-12 20:13:34,499 - INFO - 
+========================================
+2025-08-12 20:13:34,499 - INFO - Processing page 33/100: UBOBU_UBO8306198_277667_0033.jpg
+2025-08-12 20:13:34,500 - INFO - ========================================
+2025-08-12 20:13:34,882 - INFO - OCR headtitle text: 'sati cronaca di bologna nua prostema le averncazioni dei lavoratori gi impresari edilluna apids in memoria ovanfadye coperti di meno  la buona terra pie'
+2025-08-12 20:13:34,882 - WARNING - No headtitle match found. Best text: 'sati cronaca di bologna nua prostema le averncazio...'
+2025-08-12 20:13:35,117 - INFO - 
+========================================
+2025-08-12 20:13:35,117 - INFO - Processing page 34/100: UBOBU_UBO8306198_277667_0034.jpg
+2025-08-12 20:13:35,117 - INFO - ========================================
+2025-08-12 20:13:35,828 - INFO - OCR headtitle text: 'o picci na i a ale en  lee tic i ver  comet 2 mita ein babe  d    a a 00 dramma si arr eragna e sr nera ri clandestino 1946 tali nre fee fr o e are i one le re da vr cote fiv maieera 6 tiaffacvi ap wet bra cod patient p o rari  0 giro e a no storico enne i ee pa il rdlanenano lidi ai gui   mr e ercato nero'
+2025-08-12 20:13:35,828 - WARNING - No headtitle match found. Best text: 'o picci na i a ale en  lee tic i ver  comet 2 mita...'
+2025-08-12 20:13:51,869 - INFO - 
+========================================
+2025-08-12 20:13:51,869 - INFO - Processing page 35/100: UBOBU_UBO8306198_277667_0035.jpg
+2025-08-12 20:13:51,869 - INFO - ========================================
+2025-08-12 20:13:53,220 - INFO - OCR headtitle text: 'tti i aa rita atti brome cr distammaron ava irbiioligorzt da usa it  li  2 3  de li d ee to    sala ala   ù v è e l9 autonomie regionali la    otzté munll li n nuo autonomia megionalide nicola dal papa  ì piccola pubblicita 4  ti cosrforiniu da fede cqira 2 la iuiicessarte dlaciazione ali mercoiadì maltina alle 10 j f d d n ds pos imicetcozia 4 him i 21 iii  nafrtana dilsrussione alla s      d 9ili 194 ma rig i genre ji è è e immzencne dér im sifusdtà  ithà dei fallenno 29 lugile a manca 1  commercian li delli sulu mina io orge uffi  se  a n comm narn arg meta cen  valmuvre he la mettina del stase 0 no bhaiua arche loi diiotati dela sotlecane dre ficeverà si vata tti   30106 see ghiera si mao e lita nea pere gi i he ia pa tria ceo di ain a dira tro deve direzione  ws o ibs ea a si ria ana nre ei agtetio wuishiorton 29 luglio yia he avute un colliaso e gii par lo nreblemi itiziani è i ola gni disegnate gi ag ria tg rai te mentebe reco risems 88 et min nenti ctallamm tono de nurull ti diportsnenta dl stato bha sl è duvuta semminatrare luso avere avune passicarazione sit yo piva cio matta dh a le liricio romano telelo o alla ie e a i e ra cm ge e ttt'
+2025-08-12 20:13:53,221 - WARNING - No headtitle match found. Best text: 'tti i aa rita atti brome cr distammaron ava irbiio...'
+2025-08-12 20:13:53,460 - INFO - 
+========================================
+2025-08-12 20:13:53,461 - INFO - Processing page 36/100: UBOBU_UBO8306198_277667_0036.jpg
+2025-08-12 20:13:53,461 - INFO - ========================================
+2025-08-12 20:13:53,799 - INFO - OCR headtitle text: 'pubbuiita lu  i   li    bre ana nora aiboocmemi î502 51 1 è quotidiano indipendente della valle padana foi nen remora mercoledi  31 luglio 1946'
+2025-08-12 20:13:53,799 - WARNING - No headtitle match found. Best text: 'pubbuiita lu  i   li    bre ana nora aiboocmemi î5...'
+2025-08-12 20:13:54,029 - INFO - 
+========================================
+2025-08-12 20:13:54,029 - INFO - Processing page 37/100: UBOBU_UBO8306198_277667_0037.jpg
+2025-08-12 20:13:54,029 - INFO - ========================================
+2025-08-12 20:13:54,850 - INFO - OCR headtitle text: 'it ia   eisoss ss 8 è mr  ms rns nl aa  tl 20  waroll dosi sy dugiin ale ei i î  il hi temb past dati 26000 r3 et valeria patton ui sembre let u basf leti i ue dei cinale ii comitati direttivi  denunce e agcertamenti dei reddit tretinzali dogni rta cn arti ne anda panrotati alla camera del lavoro   ie afedica  dre iis0 il p cuaza 8 re hiccore teissonar qgerica far sneai cuet pri eni venier st ni di cun n fianren pi 13 eiiatuee i omance caccia attetzari catiire uo racine donde ver 0a ti sia cenno 2 i pin dabtra  uce 1630 tolibricri s compie gimaiameni ammolite ma ene di stanti pen itiare er ta da di paireur alberi prefan ms boschi venezia la i mo anita è marisa yp direzione  amministrazione tonna set ir lee ef see tu gian   via momtsballe fl  telefomo diaaaliza stingriairc fiparerntit'
+2025-08-12 20:13:54,850 - WARNING - No headtitle match found. Best text: 'it ia   eisoss ss 8 è mr  ms rns nl aa  tl 20  war...'
+2025-08-12 20:13:55,087 - INFO - 
+========================================
+2025-08-12 20:13:55,087 - INFO - Processing page 38/100: UBOBU_UBO8306198_277667_0038.jpg
+2025-08-12 20:13:55,087 - INFO - ========================================
+2025-08-12 20:13:56,034 - INFO - OCR headtitle text: 'i è  sono 0 anas e e  es e ces lu r al  ran 1 i e il   dice egi lo emm nsstrazione bolcgna a bbonamanio ad are rai gi ia i 1   21083 e pag daviì ava  anmio l12 sem l 656 tara l quotidiano indipendente della valle padana fpodi n die portate grimie i i giovedi 1 agosto 1245 dle ie elelome div12 29 io i nen ole tale do n tr ano tn ente n onto corrente num b1468 i  è rata siti so sf rem e ae me n qiecsatafifiretase mannsca asap tndinanzienas è pei fini tariffa dormmusi alterza dareh carò doll div 1 fo ccalibica 2 27 cagssiia postsla n 218 anno ii  n 207  una conia le'
+2025-08-12 20:13:56,034 - WARNING - No headtitle match found. Best text: 'i è  sono 0 anas e e  es e ces lu r al  ran 1 i e ...'
+2025-08-12 20:13:56,288 - INFO - 
+========================================
+2025-08-12 20:13:56,288 - INFO - Processing page 39/100: UBOBU_UBO8306198_277667_0039.jpg
+2025-08-12 20:13:56,288 - INFO - ========================================
+2025-08-12 20:13:56,587 - INFO - OCR headtitle text: 'cme cronaca di bologna îl mo'
+2025-08-12 20:13:56,587 - WARNING - No headtitle match found. Best text: 'cme cronaca di bologna îl mo...'
+2025-08-12 20:13:56,808 - INFO - 
+========================================
+2025-08-12 20:13:56,809 - INFO - Processing page 40/100: UBOBU_UBO8306198_277667_0040.jpg
+2025-08-12 20:13:56,809 - INFO - ========================================
+2025-08-12 20:13:57,235 - INFO - OCR headtitle text: 'iu fre colpe rn ee e la pace te tt rent cr dei vedi si pon 8 liti è  nb ai nellagricoltura ate a'
+2025-08-12 20:13:57,235 - WARNING - No headtitle match found. Best text: 'iu fre colpe rn ee e la pace te tt rent cr dei ved...'
+2025-08-12 20:14:13,425 - INFO - 
+========================================
+2025-08-12 20:14:13,425 - INFO - Processing page 41/100: UBOBU_UBO8306198_277667_0041.jpg
+2025-08-12 20:14:13,425 - INFO - ========================================
+2025-08-12 20:14:14,017 - INFO - OCR headtitle text: 'so tiri dim giornale dellemilia i a a siidantani eli  iiiaie n  lettere dalla grecia bevin migliorato la guardia a parigi accordo a firenze fosilityzioni el indisti è ec piccola pubblicità fe a  fomdra sio duglia landra sl lugiv il mi op6 alte sul lodo mezzadrile  rama si lg opsetll omteri è richesti litio du 1 prot smgae te esbinieri ovwvenuto a modena le scorso dicembre iu ve timer vita e fp pare ai i i  i via montebello  leletane 470'
+2025-08-12 20:14:14,017 - WARNING - No headtitle match found. Best text: 'so tiri dim giornale dellemilia i a a siidantani e...'
+2025-08-12 20:14:30,908 - INFO - 
+========================================
+2025-08-12 20:14:30,908 - INFO - Processing page 42/100: UBOBU_UBO8306198_277667_0042.jpg
+2025-08-12 20:14:30,908 - INFO - ========================================
+2025-08-12 20:14:31,517 - INFO - OCR headtitle text: 'crniipoai cemeni  ein dar abbonamenti a n in dei er te radama sped di puetste g me è dl è i  daf hi 6 amm nistrazione bdcom sie c io sent sso tem j quotidiano indipende nte della valle padana  si torno sum 110 pi n sa 2 agora 6 dr merngebella so veletona 43913 31i9s 1 394 cato nedì anno 2 66 1 te  tstawtzfz 2 pe î chess  ù  si  una co die moeieelini niterao iss pi cre ago a anse lrslicita concuse sicap indipendenza  tel iii tarifi per uil altezza iareb una ol comm l 6 cinnzce lr ceenile poeta e tia anne ta copi8'
+2025-08-12 20:14:31,517 - WARNING - No headtitle match found. Best text: 'crniipoai cemeni  ein dar abbonamenti a n in dei e...'
+2025-08-12 20:14:54,185 - INFO - Date found in full-page scan: 27 luglio 1945
+2025-08-12 20:14:54,186 - INFO - 
+========================================
+2025-08-12 20:14:54,186 - INFO - Processing page 43/100: UBOBU_UBO8306198_277667_0043.jpg
+2025-08-12 20:14:54,186 - INFO - ========================================
+2025-08-12 20:14:54,713 - INFO - OCR headtitle text: 'uu oa giornale dellemilia  1tt1  ve edi glusoppe trebbi   li 1523 di dr a   di a î i ito e uu  direzione ammimistrazione a mizzanotte in prefettura  egolgmo di commercanti castelfranco chiede vieni faag tremme arena delcorso ì isf i  ue crezione e ami fsline  pera 2 n l ss2iiniazmpale dunnio mertor  disp i9ae neshina sl neearoi n 36 te e fr rn en'
+2025-08-12 20:14:54,713 - WARNING - No headtitle match found. Best text: 'uu oa giornale dellemilia  1tt1  ve edi glusoppe t...'
+2025-08-12 20:14:54,971 - INFO - 
+========================================
+2025-08-12 20:14:54,972 - INFO - Processing page 44/100: UBOBU_UBO8306198_277667_0044.jpg
+2025-08-12 20:14:54,972 - INFO - ========================================
+2025-08-12 20:14:55,601 - INFO - OCR headtitle text: 'ita ui ibiza bolle 109 0  ì r i l n n n dfameniì ttt e n e i  ra i    i direzione e amministrazione bolcgna  so nem 1 se n quotidiano indipendente della valle padana o gorini ln 100  sabato  3 agonio 1946 via magiohelie  telotizii 807 ps lutto ratti punalicita conneas sicap indipendenza  tal slum  tarifie per mill alberta jargh una col comm los crenaca 2 16 è cesolia postale n 118 anna lì  n 209  una copia l b tt e tt ian i ve san 1 ide tr to rim  necislagie 1 4  legali finari sent 1 199  piocola pubblicità l i  parola  domande dimp li  a ptt pitte n tasse da nusein aretrato l0  lei'
+2025-08-12 20:14:55,601 - WARNING - No headtitle match found. Best text: 'ita ui ibiza bolle 109 0  ì r i l n n n dfameniì t...'
+2025-08-12 20:14:55,855 - INFO - 
+========================================
+2025-08-12 20:14:55,855 - INFO - Processing page 45/100: UBOBU_UBO8306198_277667_0045.jpg
+2025-08-12 20:14:55,855 - INFO - ========================================
+2025-08-12 20:14:56,799 - INFO - OCR headtitle text: 'atti tai b  i  î pi coreino due 1 fratelio ia muaftra 1 6 al  2arcrrr ei tpt oo yaeaorrr ila data 4 ax 1860 ha pre miu free de nato a e 010 g na ri l n i  dome e di hu atsine ed bassini ni i h r ti dî i ì um zuin rao ip cicmntre 1910 a gardo iii  da ai bolognesi 7 tram a casalecchio atteso uestura lun soggierno estivo ft i n to dicità gaetano io i tao tris larga i gpi per lavoratori her vla porta nasva 2   18 i  a  lo o îto ii l mu der amosino iste i erp  mio piotta gn lee dara at  à uit di mafie ro prot li li e lenal nfan di ae  pata re 3 noterede agi apnarinne  cm te set ab enel aasifaeeieta ili rene tn ii sem ne eo ala mis de ii a pe direzione è amm nistrazio ple mie oo tit d sio meantethebii hh faelziana'
+2025-08-12 20:14:56,801 - WARNING - No headtitle match found. Best text: 'atti tai b  i  î pi coreino due 1 fratelio ia muaf...'
+2025-08-12 20:14:57,052 - INFO - 
+========================================
+2025-08-12 20:14:57,052 - INFO - Processing page 46/100: UBOBU_UBO8306198_277667_0046.jpg
+2025-08-12 20:14:57,053 - INFO - ========================================
+2025-08-12 20:14:57,637 - INFO - OCR headtitle text: 'p enit  co bassini ed gartino ì e edi de  i  direzione è sm nistrazione bolcona  abrunamenti inniznho indipendente della valle padano sat sassi salienti e a  frizioni  grriinitfazione cod enne he quotidiano ind ipendente della yalle padana spar ca ank costue fiarra domenica  4 agosto 1945    sasa esa   ii     0 me gia co a li aaa  ann lf bl 23if ti pre pu ss'
+2025-08-12 20:14:57,637 - WARNING - No headtitle match found. Best text: 'p enit  co bassini ed gartino ì e edi de  i  direz...'
+2025-08-12 20:15:16,861 - INFO - Date found in full-page scan: 4 Agosto 1946
+2025-08-12 20:15:16,861 - INFO - 
+========================================
+2025-08-12 20:15:16,861 - INFO - Processing page 47/100: UBOBU_UBO8306198_277667_0047.jpg
+2025-08-12 20:15:16,861 - INFO - ========================================
+2025-08-12 20:15:17,180 - INFO - OCR headtitle text: 'rubrica agricola i  o g n ai un ne i concimazioni c pr  n ac a delle d'
+2025-08-12 20:15:17,180 - WARNING - No headtitle match found. Best text: 'rubrica agricola i  o g n ai un ne i concimazioni ...'
+2025-08-12 20:15:17,424 - INFO - 
+========================================
+2025-08-12 20:15:17,424 - INFO - Processing page 48/100: UBOBU_UBO8306198_277667_0048.jpg
+2025-08-12 20:15:17,424 - INFO - ========================================
+2025-08-12 20:15:18,177 - INFO - OCR headtitle text: '1tiviru la mamena prepara da vodré dimvadere dei 13    un nemico trees esino bieh londra 1orielibri mrò amore pi dt ta orologio ida ante se terna da lavora e si mostca dal poian to spilo lancilo iratio dall alomica pi e 0 negro a m ra 7 do n  7 nr enta  gradisco di buon ap  ma insomma pereleà 008  oarvidare feememesì 1 ageetò fio rarofa netto doratea è fee e 1tinuare ancora questa comma   grande siadilimento per la  termo londra riese ta ciggid sie   guarita wing i i ha da da 7 urla con e let a corlto 8 bbricezione di bombe atomi4  tweziieth century thee è ga le ie jone storica a  cicenatare a 4 vue seno  etra è un pette mita di qakridre fa dato litra gi londra a prima com cai ta 0 ba ci art a en o rit ine 40 gita ed io la spossl int primi crodotti a sconi pe pagenba di balletti negzi che ai sale na co'
+2025-08-12 20:15:18,177 - WARNING - No headtitle match found. Best text: '1tiviru la mamena prepara da vodré dimvadere dei 1...'
+2025-08-12 20:15:36,187 - INFO - 
+========================================
+2025-08-12 20:15:36,187 - INFO - Processing page 49/100: UBOBU_UBO8306198_277667_0049.jpg
+2025-08-12 20:15:36,187 - INFO - ========================================
+2025-08-12 20:15:36,863 - INFO - OCR headtitle text: 'giornale dellemilia i pubriza agricola  c d b o o g n a un nei concimazion  pr ona adi bologna logna delle d estive td   a fssta di san domenico cianciullerie fi snesoso sii man ell240155ì4à martinliana  z    db a za aa àauaaazmzgaga i'
+2025-08-12 20:15:36,864 - WARNING - No headtitle match found. Best text: 'giornale dellemilia i pubriza agricola  c d b o o ...'
+2025-08-12 20:15:37,216 - INFO - 
+========================================
+2025-08-12 20:15:37,216 - INFO - Processing page 50/100: UBOBU_UBO8306198_277667_0050.jpg
+2025-08-12 20:15:37,216 - INFO - ========================================
+2025-08-12 20:15:38,170 - INFO - OCR headtitle text: 'li   ttt mwnuuùuùnonòùl nale purim tit ta  7  si ul h ini orieaf ta suona prupera de pista po vutrà disssodore 11carhong redivatttvo66 autori e libri sro sa quando ie la fee droga llretto dall alomica ti etto negro a nara jerela torra dlai lavoro  si mostra  dal polso lo spito lanello ii  pio barca orienta  gradisce di buan ap  ma insomira perché c0e oakrigo ftoamanzta è agceta lendra agosto sette tr selito iarotra  felie e jnumra fncora questa commo n granda stabilimento per în poco tempo fa ha decutisto imi nr dita dog a he d o n jonrie cose ngni arca ha ra  dia  urla enn collera contro  isnbbricazione di bombe atomi 1  twertietà century thea si fresca faemirino o  racenctare fizira ha gievoln piengo  elvira è un eiarto i n ha fi daxritze pi deto  tras di londra a prima ram li fia   de a proprio ione sloriza die li si 0 ra  gratificazione dalungelica ez in n sposo imini niet nrudolii a coni pa pen di tallettl negr che st diano est o iena'
+2025-08-12 20:15:38,170 - WARNING - No headtitle match found. Best text: 'li   ttt mwnuuùuùnonòùl nale purim tit ta  7  si u...'
+2025-08-12 20:15:56,827 - INFO - 
+========================================
+2025-08-12 20:15:56,827 - INFO - Processing page 51/100: UBOBU_UBO8306198_277667_0051.jpg
+2025-08-12 20:15:56,827 - INFO - ========================================
+2025-08-12 20:15:57,758 - INFO - OCR headtitle text: 'la giornale dellemilia i i  li li 2 furto di manovellet iti i mi l i fill i i piccola pubblicita n  iseria di una grande dittà  utti i migliori ella punzonatura a posò war i  e pregi le ai si nei se affeti e mote en nenga e um e miita na fato fi after pero si rete lai sui in magagnel n si posa rs toti o cap gene pe asia tum mal nostro inyiato giano pusria  miano togni azienda fiero se di  brcrsi uh vera nate i ie e'
+2025-08-12 20:15:57,759 - WARNING - No headtitle match found. Best text: 'la giornale dellemilia i i  li li 2 furto di manov...'
+2025-08-12 20:15:58,103 - INFO - 
+========================================
+2025-08-12 20:15:58,104 - INFO - Processing page 52/100: UBOBU_UBO8306198_277667_0052.jpg
+2025-08-12 20:15:58,104 - INFO - ========================================
+2025-08-12 20:15:58,418 - INFO - OCR headtitle text: ''
+2025-08-12 20:15:58,418 - WARNING - No headtitle match found. Best text: '...'
+2025-08-12 20:15:58,816 - INFO - 
+========================================
+2025-08-12 20:15:58,818 - INFO - Processing page 53/100: UBOBU_UBO8306198_277667_0053.jpg
+2025-08-12 20:15:58,818 - INFO - ========================================
+2025-08-12 20:15:59,348 - INFO - OCR headtitle text: 'li giornale dellemilia cl  pa an ae o i etim e i notizie coagl e ganelli prepararsi in tempo slornalisti concittadini 66 e e sr ccanfi trasentsipri ri i izi direzione n amm mistrazione i à le  tpasognti cerca di notizie vii mnetstallo n yale  fi nita a porretta tarma cemnorina  diesa ad dbogdi di nuove base ai pai ne n è ne pol eni rom da ll'
+2025-08-12 20:15:59,348 - WARNING - No headtitle match found. Best text: 'li giornale dellemilia cl  pa an ae o i etim e i n...'
+2025-08-12 20:15:59,701 - INFO - 
+========================================
+2025-08-12 20:15:59,701 - INFO - Processing page 54/100: UBOBU_UBO8306198_277667_0054.jpg
+2025-08-12 20:15:59,701 - INFO - ========================================
+2025-08-12 20:16:00,568 - INFO - OCR headtitle text: 'nologra    a   pi 05 pr e ca direzione è amministrazione bologna asa sen tosto trim quotidiano indipende nte della valle padana o seti on bo por gu martedi  6 agosto 1944 sal via mento felsioso sisti nas i da sdi lise late tec rlirrricità conneag nicap napendenza d tel 88  tariffa der ill allegra 1atgh une sol csinz 1 st cenraca 1 13 cime n ada di va azna hi  n 212 una copia l 5  è derivi nia inalalsaa do snii95 niorlaogà e 1 il00 ti lo  necralage fr co taegili armi ant l 190 piccola pubblicità 1  ei narola  domanda dimp f ko a par sifre fio tane ipiteotreefeetle ne ci  si 2'
+2025-08-12 20:16:00,568 - WARNING - No headtitle match found. Best text: 'nologra    a   pi 05 pr e ca direzione è amministr...'
+2025-08-12 20:16:01,007 - INFO - 
+========================================
+2025-08-12 20:16:01,007 - INFO - Processing page 55/100: UBOBU_UBO8306198_277667_0055.jpg
+2025-08-12 20:16:01,007 - INFO - ========================================
+2025-08-12 20:16:01,719 - INFO - OCR headtitle text: 'raro tara po  iris ro naca di bologna illf straordinaria 2 iso cres  i di domenica la frutta auvanzna del sole nenne saito spese non uetessalte tar arna infame lesportazione di irottai ea citta senzacqua d i era del  5 la colonna infame lee nie ee ag gg merooemeineson laion'
+2025-08-12 20:16:01,719 - WARNING - No headtitle match found. Best text: 'raro tara po  iris ro naca di bologna illf straord...'
+2025-08-12 20:16:02,209 - INFO - 
+========================================
+2025-08-12 20:16:02,209 - INFO - Processing page 56/100: UBOBU_UBO8306198_277667_0056.jpg
+2025-08-12 20:16:02,209 - INFO - ========================================
+2025-08-12 20:16:03,607 - INFO - OCR headtitle text: 'i giornale dellemilia    6   1 i e 8 rmmp6tm  4  to 1 ventidus donne rono enttatò da un liticuto di beneficarad  ù pre rea  hi è atti  è d siete  nellaula di monterttorto non d utate a visitare 1 poveri può anche  3  aa  p pb  fi per assziere some futte vazere clepritata degli trettori ad ui i gt le allen dalle imbine cile se pa bat n tampresentorio ciel ian3  3 ed  vada  hete mg pero praricmipare ci atesse   giri  a say sx ps li som e rgadie n tovori delle costituente crmia suon vepa tenia parrerbe puggeri lig sp n da è vo  cz pr vr cu dle chiumecene da dueiche tr snche gi seviminzie 0 la mm ti  uieiza ci elit mito gi mep lr ai gione eluete gii letto cplcatuegle iffiatiarima pol g drpuialo darde o tria a del sole  è si ia rissa mig vert ico a smo scrien e nreer ae e faverioire ut  depetatesio ho yurito li 4 centrijpunmo vevnimente a da lleme pe ariete e è  n è are bai rita e n ce ci i nume cdetu alsoto ficaetensa pal pepe st e rire oi  maina sie ce io diete e at i è ua maat rt i ia  emi de af ti femme gl un tom mie cràbe du ich unesneni fo et tt aio gi en uri ere tin dee cir a us agi a e e e di mei ni freno ino nno rpechaa pasie ia ra paio y deo hic so das  a i dia da dira ci sii vai me lar st sul n riminese e c9 triganionda air ram si ff se ri pa'
+2025-08-12 20:16:03,608 - WARNING - No headtitle match found. Best text: 'i giornale dellemilia    6   1 i e 8 rmmp6tm  4  t...'
+2025-08-12 20:16:04,009 - INFO - 
+========================================
+2025-08-12 20:16:04,009 - INFO - Processing page 57/100: UBOBU_UBO8306198_277667_0057.jpg
+2025-08-12 20:16:04,009 - INFO - ========================================
+2025-08-12 20:16:05,135 - INFO - OCR headtitle text: 'r rrr tl eine  ri tie e tz aiw à m vy xzxrrooè  li a  1  li li li li  4 rosolare servizio perse idimostrazione a milanolt 7 il cancellierei 1 giorna  agosto soi corona tl asonto mi da ne  madridroma e viceversa pressimo inizio di lavori pevblici del tribunale i devenne et sa miri ipegrecasi la cara i r i rossa b areto  milnno bo azoeto  irassi giovanni rappresentato giovanni baidanzs giono zanardi lim sumo delamba una manifestazione dl duaoe li li doiavoo lf branghebini 1h giu ta ev ra sa tn della valusata a circa 7001 in com mus ordinanza it iuto sti bai bat oo o mem te intastritale è dine di esta agi prrtene tir pencerio 14 vie ono i te iano ia vendita see ata e o all sui ste drena de a carnea dem ct new torà 5 agato rinita lamnieteagiio biande tn e i uu iearenie agesrao 19 reeeirsaisiaaa qea e ie e genova fi agosto vrltata dallon puoto cappa per inzuenti mamobii di prasiietà atti nai cer et lea ran dra direzione è amm nstrazione i rpragacina disin s tie an ee re nenaro n gara diete sete e sr agree dsc di è pionarmente conlo ieraseli alto di mime di liri can i'
+2025-08-12 20:16:05,135 - WARNING - No headtitle match found. Best text: 'r rrr tl eine  ri tie e tz aiw à m vy xzxrrooè  li...'
+2025-08-12 20:16:05,469 - INFO - 
+========================================
+2025-08-12 20:16:05,469 - INFO - Processing page 58/100: UBOBU_UBO8306198_277667_0058.jpg
+2025-08-12 20:16:05,469 - INFO - ========================================
+2025-08-12 20:16:06,268 - INFO - OCR headtitle text: 'bo n trlegna o j to zanardi ld è i ji d a 0 è  frlepcoriinios mr diazione è ammnstrazion goicoma  asiptrttai quotidiano indipendente della valle padana  fm ni e ig uni cesta ls peri i se detiibii niiò 2003 tr i e o aio pe aniiaitan conslii ripap jedirendenta  te d061 tariffa per mil nftegne largh une coi como l  cronaca ts carella postale n 218 ì anno î  n 213  una copia l  perle ni pe leu e to an cenate dati sen lo ld6 piccola pubbloì l 22  bèroa  domande dmp lt pa daroitre bro tasse uno mamero erzetiau o to'
+2025-08-12 20:16:06,268 - WARNING - No headtitle match found. Best text: 'bo n trlegna o j to zanardi ld è i ji d a 0 è  frl...'
+2025-08-12 20:16:23,353 - INFO - Date found in full-page scan: 7 Agosto 1946
+2025-08-12 20:16:23,353 - INFO - 
+========================================
+2025-08-12 20:16:23,353 - INFO - Processing page 59/100: UBOBU_UBO8306198_277667_0059.jpg
+2025-08-12 20:16:23,353 - INFO - ========================================
+2025-08-12 20:16:24,018 - INFO - OCR headtitle text: 'fee e nvei o giornale dellemilia na vette less bra danno iso  gt  cronaca di bologna   e a ew a vano oc  oooo o tlt taeali appiriamenti è terrena i e itantetta mierna alla eftidin  ero fonenno di ispettorati agpari ec oa aa st'
+2025-08-12 20:16:24,018 - WARNING - No headtitle match found. Best text: 'fee e nvei o giornale dellemilia na vette less bra...'
+2025-08-12 20:16:24,393 - INFO - 
+========================================
+2025-08-12 20:16:24,394 - INFO - Processing page 60/100: UBOBU_UBO8306198_277667_0060.jpg
+2025-08-12 20:16:24,394 - INFO - ========================================
+2025-08-12 20:16:24,767 - INFO - OCR headtitle text: 'li vo riinets   eno asib 4'
+2025-08-12 20:16:24,767 - WARNING - No headtitle match found. Best text: 'li vo riinets   eno asib 4...'
+2025-08-12 20:16:25,207 - INFO - 
+========================================
+2025-08-12 20:16:25,207 - INFO - Processing page 61/100: UBOBU_UBO8306198_277667_0061.jpg
+2025-08-12 20:16:25,207 - INFO - ========================================
+2025-08-12 20:16:25,819 - INFO - OCR headtitle text: 'i serie lpornale beleermzia nu e ttt i granntc ronaca di bologna nerla jugoslavia seo 3 er  0 o la e nalias nl tinbzta adasmd atta niasnogitrazione 1 fi nia gtaoni siacara la miunta flanun a gi ee li s tarn al mito funebre nnt ei cra nd'
+2025-08-12 20:16:25,819 - WARNING - No headtitle match found. Best text: 'i serie lpornale beleermzia nu e ttt i granntc ron...'
+2025-08-12 20:16:26,188 - INFO - 
+========================================
+2025-08-12 20:16:26,188 - INFO - Processing page 62/100: UBOBU_UBO8306198_277667_0062.jpg
+2025-08-12 20:16:26,190 - INFO - ========================================
+2025-08-12 20:16:26,668 - INFO - OCR headtitle text: 'n giornale dellemilia 2 3 cia srandi della cona a  e be  sacerdoti di omero'
+2025-08-12 20:16:26,668 - INFO - Headtitle fuzzy match: 'giornale dell emilia' (ratio: 0.40)
+2025-08-12 20:16:45,125 - INFO - 
+========================================
+2025-08-12 20:16:45,126 - INFO - Processing page 63/100: UBOBU_UBO8306198_277667_0063.jpg
+2025-08-12 20:16:45,126 - INFO - ========================================
+2025-08-12 20:16:45,863 - INFO - OCR headtitle text: 'a sso pete ro  wrote do a  giornale dellemilia 666 ttt rr 0 è  tt a e erghi e prosion 1l pravvodinanli  diazoua velivele jugoslavo ie a ts  por astotare termebi caduto in territorio italiano mint io ii î det e pere 7 ect wepesia 7 agosto e  è smi da da dat  i remino reggiani a rie di egnre nel disness soltanto ora le auforità har 4 4000 k sam e 0 mi direz i adi pea oi eco diegite nei dunoci sotunio oro le satorià ren dalle kawai in cantarnia  n ba does n cen direzione e amm nistrazione dadi leplie è  di  fra mootrbellu  ieletomo 429'
+2025-08-12 20:16:45,865 - WARNING - No headtitle match found. Best text: 'a sso pete ro  wrote do a  giornale dellemilia 666...'
+2025-08-12 20:16:46,242 - INFO - 
+========================================
+2025-08-12 20:16:46,242 - INFO - Processing page 64/100: UBOBU_UBO8306198_277667_0064.jpg
+2025-08-12 20:16:46,242 - INFO - ========================================
+2025-08-12 20:16:46,856 - INFO - OCR headtitle text: 'par fank    pa 43  n chat 32 li rota ne ne  ic i obi i  oe beaeni  19 e po udi i i direzione e amm nistrazione bolcgna   abbonamenti guotidiam it 5 la l a ioed i pastssa gruppo  le ua ne ne teme gine eros dere lt pt uotidiamo indipendente della valle padana fer eretico  venerde  9 agosto 1946 è montebello ho deletome i913 into 0 ti su e piarlicita colico sigap indipengenza  tel sia  tacifta per sati aftunza fargh una col comui l 60 lraracg i 13 camila postale a 218  anno il n 216  una copia l 5'
+2025-08-12 20:16:46,856 - WARNING - No headtitle match found. Best text: 'par fank    pa 43  n chat 32 li rota ne ne  ic i o...'
+2025-08-12 20:16:47,263 - INFO - 
+========================================
+2025-08-12 20:16:47,263 - INFO - Processing page 65/100: UBOBU_UBO8306198_277667_0065.jpg
+2025-08-12 20:16:47,269 - INFO - ========================================
+2025-08-12 20:16:47,936 - INFO - OCR headtitle text: 'to e i siii  ii amc renale dellemilia ll eee vv enni la è i  e  0i  me  pillola pubblicita ttlil 1n 044 lagitazione degli statali ri aaa e aotoli doggi ue ee a è i11   unione di esercent smemacoli deppi amm du i tt ttt riminctinoo'
+2025-08-12 20:16:47,936 - WARNING - No headtitle match found. Best text: 'to e i siii  ii amc renale dellemilia ll eee vv en...'
+2025-08-12 20:16:48,309 - INFO - 
+========================================
+2025-08-12 20:16:48,310 - INFO - Processing page 66/100: UBOBU_UBO8306198_277667_0066.jpg
+2025-08-12 20:16:48,310 - INFO - ========================================
+2025-08-12 20:16:48,797 - INFO - OCR headtitle text: '1 1 l di i direzione è amm nistrazione boicgna venorameni quotidiano indpendente di informazioni fodin vocosaegrspei  sabato  10 agosto 1946 ps nanni fia mintsbello telebini 0599 miss aa n livia tetta e geena sila 1055 pensetra i tel 1v081  taziità per mil anerta sar cu na a frena ino cronaca 1 c3 casnalla poatele n 218 anna ll  n 218  una copla l 5'
+2025-08-12 20:16:48,797 - WARNING - No headtitle match found. Best text: '1 1 l di i direzione è amm nistrazione boicgna ven...'
+2025-08-12 20:17:07,969 - INFO - 
+========================================
+2025-08-12 20:17:07,969 - INFO - Processing page 67/100: UBOBU_UBO8306198_277667_0067.jpg
+2025-08-12 20:17:07,969 - INFO - ========================================
+2025-08-12 20:17:08,628 - INFO - OCR headtitle text: 'mt ir ie i ic e siornale dellemilia een vu l sr  cummeretati cronaca di bologna piaficrnio cia poeta gigio e eni  y  e  x  ll aromartro n ia direzione è amm ristraz iiilinni non pazianda doi fami fire ie cin ey paracadutista atterra frane semioci como mente lett si menate ste   os arefano 36 f eine nuto mitinstio ria la 28 dita ne ufficio wmomano tele'
+2025-08-12 20:17:08,628 - WARNING - No headtitle match found. Best text: 'mt ir ie i ic e siornale dellemilia een vu l sr  c...'
+2025-08-12 20:17:08,857 - INFO - 
+========================================
+2025-08-12 20:17:08,866 - INFO - Processing page 68/100: UBOBU_UBO8306198_277667_0068.jpg
+2025-08-12 20:17:08,866 - INFO - ========================================
+2025-08-12 20:17:09,342 - INFO - OCR headtitle text: 'i  sita  l p li i il 1 i i direzione e amm nifteazine iboleora uccisi ir pm fo tom guotidiano indipendente di informazioni sped in eo posti grurro domenica  11 agosto 1946  bia mugiohstia  teleioni 42037 2053 158 vi met anno 1306 ro zune rr o sagisirasntàà ilicuà ik ana sili conn lm iris ù e mi dele n 219'
+2025-08-12 20:17:09,342 - WARNING - No headtitle match found. Best text: 'i  sita  l p li i il 1 i i direzione e amm nifteaz...'
+2025-08-12 20:17:29,183 - INFO - Date found in full-page scan: 11 Agosto 1946
+2025-08-12 20:17:29,183 - INFO - 
+========================================
+2025-08-12 20:17:29,183 - INFO - Processing page 69/100: UBOBU_UBO8306198_277667_0069.jpg
+2025-08-12 20:17:29,183 - INFO - ========================================
+2025-08-12 20:17:29,686 - INFO - OCR headtitle text: 'a cr g fimo tte  n a cc a d  pe wi dpi a sai i boi  inte   db onora nibblirha  salate ottimai 7 viaggi na ccsmnin da itntosa e offima dre 1499 pilcsa è 99 a 1 rbstaco pe ag du cata tirsie dre dig eresie d î mer pria bei larga lali angie ler'
+2025-08-12 20:17:29,686 - WARNING - No headtitle match found. Best text: 'a cr g fimo tte  n a cc a d  pe wi dpi a sai i boi...'
+2025-08-12 20:17:29,919 - INFO - 
+========================================
+2025-08-12 20:17:29,919 - INFO - Processing page 70/100: UBOBU_UBO8306198_277667_0070.jpg
+2025-08-12 20:17:29,919 - INFO - ========================================
+2025-08-12 20:17:30,317 - INFO - OCR headtitle text: 'tit iornale dellemilia ps p pò k   dea  ee  di guido ce  cini reoti riinsì'
+2025-08-12 20:17:30,317 - INFO - Headtitle fuzzy match: 'il giornale dell emilia' (ratio: 0.41)
+2025-08-12 20:17:45,560 - INFO - 
+========================================
+2025-08-12 20:17:45,561 - INFO - Processing page 71/100: UBOBU_UBO8306198_277667_0071.jpg
+2025-08-12 20:17:45,561 - INFO - ========================================
+2025-08-12 20:17:46,591 - INFO - OCR headtitle text: 'li mmttrt trttzîtîctmni giornali dellemilia i e ttt li  sd  bi  a miidela presidenza dava notizia pr x i 0 si  a  t 7 7i trà annivarzario 7  srler vazla prospetta ti panslero vlc si i i nel primo triste ti che d convegno fra je parti dla chisete del lavoratori della sec rivoltosi di cgaccamo  p deila morte di n rt gi minc e menoi ne ose coi promeltone n versare ll grate mu  armando seller ver nell aliv 37 nanto la icumlone prost  pena 7   susieppina right 1 n    a fio della discosntone e uve fa sui stcondo cometa ci te se   pia ka meio ti dolore e prufercv ji 5 dliicriiii ci  i ordine ca omo relativo blip i h tpiania 15 ricnga al parent  i enedì rinnione da nenni 701100050 sra de vit anorraparizre depe avere vii tatimato ni rivoltoel i carce ua pi  ri i ora n chess stile berto so alto della stluiziane lucgio mo di consegnare 10 armi  le  è  ln ti agosto elle ole ani i liga ha di ibades  da de perché ai tiottavi di un malni delle cure province è tal mmunizioni in una risa prè d si sail i caiesa 21 8 virala daro falenisia  dai pesto et vati un ordine del stabilita sd un rhliogero  conselion 18 ngorto va per confessare lì go cit una mrso la ture o vr hi netitt o masso dal abitato di catonità sata natia di st per rap ne tentando di glustificare il gun 4 pw llpwùpi ee van men che sega art int a citi to nel fecondo ane vessario dal 2'
+2025-08-12 20:17:46,591 - WARNING - No headtitle match found. Best text: 'li mmttrt trttzîtîctmni giornali dellemilia i e tt...'
+2025-08-12 20:17:46,825 - INFO - 
+========================================
+2025-08-12 20:17:46,826 - INFO - Processing page 72/100: UBOBU_UBO8306198_277667_0072.jpg
+2025-08-12 20:17:46,826 - INFO - ========================================
+2025-08-12 20:17:47,122 - INFO - OCR headtitle text: ''
+2025-08-12 20:17:47,122 - WARNING - No headtitle match found. Best text: '...'
+2025-08-12 20:17:47,371 - INFO - 
+========================================
+2025-08-12 20:17:47,371 - INFO - Processing page 73/100: UBOBU_UBO8306198_277667_0073.jpg
+2025-08-12 20:17:47,371 - INFO - ========================================
+2025-08-12 20:17:47,992 - INFO - OCR headtitle text: 'uo niee colei ee si etti0o  4 lu giornale dellemilia i nl  mo sn  cmitte o a a  n    et eer a nio pala li î vimie r giacomo si sti ie  h   rataza vi ie pari armando catani 1 aa vivo diglore 1a i a a etti 5 iva a mora nre ara caa  dà ni  ee o arcage dott  dellagr  fl sa  sa ea n an giovanni cattani iù le sis di a he ar lin'
+2025-08-12 20:17:47,992 - WARNING - No headtitle match found. Best text: 'uo niee colei ee si etti0o  4 lu giornale dellemil...'
+2025-08-12 20:17:48,223 - INFO - 
+========================================
+2025-08-12 20:17:48,223 - INFO - Processing page 74/100: UBOBU_UBO8306198_277667_0074.jpg
+2025-08-12 20:17:48,223 - INFO - ========================================
+2025-08-12 20:17:48,599 - INFO - OCR headtitle text: 'd bologna d s i ì  me  1 sped in sbb postaie grusii i 1 martedì  13 agosto 1945 a mawinii quotidiano indipendente di informazioni fois consone dreticne è amm histrazione bolcgna pi  gas sa e ve'
+2025-08-12 20:17:48,599 - WARNING - No headtitle match found. Best text: 'd bologna d s i ì  me  1 sped in sbb postaie grusi...'
+2025-08-12 20:18:07,164 - INFO - 
+========================================
+2025-08-12 20:18:07,169 - INFO - Processing page 75/100: UBOBU_UBO8306198_277667_0075.jpg
+2025-08-12 20:18:07,169 - INFO - ========================================
+2025-08-12 20:18:07,800 - INFO - OCR headtitle text: '2 n giornale dellemilia vt  e    i n  vv t   im  rt   xtt tfr rai pg ilonnetto cav ciali  eugento vecchisreli  alfansino mataguii invalldo di querta xiudente cd sus i  lu nu ù  di  1 due anni domani    sera ge seat agiata  direzione  amm mistrazi ai  rr  d aaarariboesere aaa gara danrnhiî dinanni ai nindicil ta questa sera sere ti si enea me ste e e va ratei ns letalon'
+2025-08-12 20:18:07,802 - WARNING - No headtitle match found. Best text: '2 n giornale dellemilia vt  e    i n  vv t   im  r...'
+2025-08-12 20:18:23,315 - INFO - 
+========================================
+2025-08-12 20:18:23,315 - INFO - Processing page 76/100: UBOBU_UBO8306198_277667_0076.jpg
+2025-08-12 20:18:23,315 - INFO - ========================================
+2025-08-12 20:18:23,998 - INFO - OCR headtitle text: 'car ieri i  si e nio  i aa nr stesa  si  bè da direzione  amm mistrazione bcu gna ll rbmiiier rt quotidiano indipend ente di informazioni eped ia a3r postne grueesi mercoledi  14 agosta 1946 bea ihogali ono so drfefngi addo dt ant dd it  arthî  toffà der enli nisenza taeid aria mete esi po ri irannza ps canta pastsle n 209 anno i1 n 220  una coopla l 5'
+2025-08-12 20:18:23,998 - WARNING - No headtitle match found. Best text: 'car ieri i  si e nio  i aa nr stesa  si  bè da dir...'
+2025-08-12 20:18:50,096 - INFO - Date found in full-page scan: 14 Agosto 1946
+2025-08-12 20:18:50,096 - INFO - 
+========================================
+2025-08-12 20:18:50,096 - INFO - Processing page 77/100: UBOBU_UBO8306198_277667_0077.jpg
+2025-08-12 20:18:50,096 - INFO - ========================================
+2025-08-12 20:18:50,608 - INFO - OCR headtitle text: 'ci o n siornale dellemilia   1 tl  i atpaltia deb isti la do na l  i d  di a   a cav doit  me ò i  atea è  ò direzione a amm nstra la faraiità mar dartamantiare fi moconinmbarilo anni i guerra fi incominciato lesodo suglisine carbanelni i rr ì l mi a e peng n 3 leale'
+2025-08-12 20:18:50,608 - WARNING - No headtitle match found. Best text: 'ci o n siornale dellemilia   1 tl  i atpaltia deb ...'
+2025-08-12 20:19:00,876 - INFO - 
+========================================
+2025-08-12 20:19:00,876 - INFO - Processing page 78/100: UBOBU_UBO8306198_277667_0078.jpg
+2025-08-12 20:19:00,876 - INFO - ========================================
+2025-08-12 20:19:01,414 - INFO - OCR headtitle text: 'bol rina 5î 3    pi si   a   nt pi a i e i a o rs     è crezione è amministrazione bologna   abronanfenzi   quotidiano indipendente di informazioni goed fa ebp one runs i giovedi  15 agosto 1946  sie uogeli on 50 tabeinoi antro 261 se e a i dai le io rancate evaso fa sicende raf te suol tariffa par imali alterza tare u no eni  gemmi tr fo rronsea l 19 canniia postele p 178 l anno il  n 221  una copla l'
+2025-08-12 20:19:01,414 - WARNING - No headtitle match found. Best text: 'bol rina 5î 3    pi si   a   nt pi a i e i a o rs ...'
+2025-08-12 20:19:01,680 - INFO - 
+========================================
+2025-08-12 20:19:01,680 - INFO - Processing page 79/100: UBOBU_UBO8306198_277667_0079.jpg
+2025-08-12 20:19:01,680 - INFO - ========================================
+2025-08-12 20:19:02,295 - INFO - OCR headtitle text: 'da dcr pa calma sinptaoe da di i  ttt e rete teen reti giornale dell emilia nt   tt eee eee teo tx tptttttwu  ui spettacoti dogg ì eale i medica i nell i   2 eeetito dal qiedannfammomierione di patrioti ip  cela ceerlianea e cinema id il sic'
+2025-08-12 20:19:02,295 - INFO - Exact headtitle match: 'giornale dell emilia'
+2025-08-12 20:19:15,654 - INFO - Date found in full-page scan: 6 aprile 1046
+2025-08-12 20:19:15,654 - INFO - 
+========================================
+2025-08-12 20:19:15,654 - INFO - Processing page 80/100: UBOBU_UBO8306198_277667_0080.jpg
+2025-08-12 20:19:15,654 - INFO - ========================================
+2025-08-12 20:19:16,082 - INFO - OCR headtitle text: 'n i nn tea i giornale dellemilia 3 0 i mnivento pg ea pazzi della terra nella buca 995   enella zona del pacifico'
+2025-08-12 20:19:16,082 - WARNING - No headtitle match found. Best text: 'n i nn tea i giornale dellemilia 3 0 i mnivento pg...'
+2025-08-12 20:19:38,284 - INFO - Date found in full-page scan: 10 giugno 1800
+2025-08-12 20:19:38,284 - INFO - 
+========================================
+2025-08-12 20:19:38,284 - INFO - Processing page 81/100: UBOBU_UBO8306198_277667_0081.jpg
+2025-08-12 20:19:38,284 - INFO - ========================================
+2025-08-12 20:19:39,053 - INFO - OCR headtitle text: 'i giornale dellemilia   sas  è ir m1t  i  io ranò di alle ara 1 i seri 4 crat  idinilano fa fl moralista ultimo atto vi otere pate 3 des se cli ro voro st i ua o 15 h î  di n mn a dorli dalia s mie er re d usserm urgo n cena dl ascalivai arabi baulg coì pasti fi mossglipibt suc ss cooce dalle dai mit fi giovanni campad  a dà iii dott qui fonia eaikiet ia le it se  palermo li agosto  vite ti aa difezione aes misti pi gponiile fees ha hicesute a  cati adolfo neppl  raffaele damiani rtrt sl etrrentt i sorie sr pe vana  ce ada  armati  eee luo robo t'
+2025-08-12 20:19:39,054 - WARNING - No headtitle match found. Best text: 'i giornale dellemilia   sas  è ir m1t  i  io ranò ...'
+2025-08-12 20:19:39,496 - INFO - 
+========================================
+2025-08-12 20:19:39,498 - INFO - Processing page 82/100: UBOBU_UBO8306198_277667_0082.jpg
+2025-08-12 20:19:39,498 - INFO - ========================================
+2025-08-12 20:19:40,144 - INFO - OCR headtitle text: 'y pre siti 4 l a  0p 3 sì 7 co   id dizione amm mstrazione boloma protoni quotidiano indipendente di informazioni domini ili sabato  17 agosto 106 dee vie pogali n s 0 telsiauo 42017 29278 ca es e e caesesil asso rr sctta chonsgia sicap indiorndenes a tel 29si tariffà per moli artezta izigli ina cali man ot bd sruedca ll t9 casslia postale n 219 anno il  n 222  una copia'
+2025-08-12 20:19:40,144 - WARNING - No headtitle match found. Best text: 'y pre siti 4 l a  0p 3 sì 7 co   id dizione amm ms...'
+2025-08-12 20:19:40,586 - INFO - 
+========================================
+2025-08-12 20:19:40,587 - INFO - Processing page 83/100: UBOBU_UBO8306198_277667_0083.jpg
+2025-08-12 20:19:40,587 - INFO - ========================================
+2025-08-12 20:19:41,222 - INFO - OCR headtitle text: 'a e e giornale dellemilia ww  rr e cronaca di bologna perti 13 suo pron nas nn toi nina benu milioni se n     l sesta nata banlstinl   dpezione è amm 4 lie riemka il venlionedella stampa semmeeeli dewnt se ana ct ai va vega hm pet cic orkoman'
+2025-08-12 20:19:41,222 - WARNING - No headtitle match found. Best text: 'a e e giornale dellemilia ww  rr e cronaca di bolo...'
+2025-08-12 20:19:48,818 - INFO - 
+========================================
+2025-08-12 20:19:48,818 - INFO - Processing page 84/100: UBOBU_UBO8306198_277667_0084.jpg
+2025-08-12 20:19:48,818 - INFO - ========================================
+2025-08-12 20:19:49,555 - INFO - OCR headtitle text: 'r va lt p 4 a it   1 5 1 5 au i ut abromamenti   i a n a è n î sezione a ammirazione poigom otamal  quotidiano indipendente di informazioni dimmi ili domenica  10 agono 19m e raise i pa le ai eran  la n meg st ie feeder di le 2166 tariffa partis allegra laiyn na co cero  creava 1 20 cadela postale n tip anno i  n 223  una copla l 5  sole sui 80 a co sente coca ri più 1 sò sie pam aeria acca i è è ar siro lia bacsò pmono citta arteria 1'
+2025-08-12 20:19:49,555 - WARNING - No headtitle match found. Best text: 'r va lt p 4 a it   1 5 1 5 au i ut abromamenti   i...'
+2025-08-12 20:20:15,972 - INFO - Date found in full-page scan: 18 Agosto 1946
+2025-08-12 20:20:15,972 - INFO - 
+========================================
+2025-08-12 20:20:15,972 - INFO - Processing page 85/100: UBOBU_UBO8306198_277667_0085.jpg
+2025-08-12 20:20:15,972 - INFO - ========================================
+2025-08-12 20:20:16,686 - INFO - OCR headtitle text: 'tare ne sette rl emi ie ci n  e giornale dellemilia  e  i ruarca arco one  e mica cronaca di bologna ul m seco la macchn ed esportazione re e lisi flamini come formiche 77 telefono 25314 sie la cent da cucire'
+2025-08-12 20:20:16,686 - WARNING - No headtitle match found. Best text: 'tare ne sette rl emi ie ci n  e giornale dellemili...'
+2025-08-12 20:20:27,611 - INFO - 
+========================================
+2025-08-12 20:20:27,612 - INFO - Processing page 86/100: UBOBU_UBO8306198_277667_0086.jpg
+2025-08-12 20:20:27,612 - INFO - ========================================
+2025-08-12 20:20:28,093 - INFO - OCR headtitle text: 'si  e na giornale dellemilia 3 n la macchia galli povere  da cucire sa cilimana se n 0 corriere e nod align ì milano bologna'
+2025-08-12 20:20:28,094 - WARNING - No headtitle match found. Best text: 'si  e na giornale dellemilia 3 n la macchia galli ...'
+2025-08-12 20:20:43,202 - INFO - 
+========================================
+2025-08-12 20:20:43,202 - INFO - Processing page 87/100: UBOBU_UBO8306198_277667_0087.jpg
+2025-08-12 20:20:43,211 - INFO - ========================================
+2025-08-12 20:20:44,650 - INFO - OCR headtitle text: 'dei le  n ee ne eten me   ss è iu lun tr fo a ate a x a ipc ta ul pa tt    orna d di  bf a ei ptamete  n tt e ci nate lia aio i le proposte   n di pace del negus cercasi base oceanica comma nas pochi casi di tifa il comttato delta conti piccol a pusbl icita     i i  niutdo agg tata n irele  la ì por proiettili raxso inghbeiaka det i rasiutione fim diverso cisoà atea 29 mie er i re i 3 trip j  1 ss  imflbze è  nmermmenti e varie nora esere fi concoî fl i a e rmammatm dt more di i grande scqmebalo 1a liparia girupne st agosto lover a dem e convocato i hue mea sa rn pineto ra sd ata et e imprrta 19 agnsio  a propouito delie so the rare i ndhe suole adele iscorgnte nsa conuza ip deorum cantar pei belisario giovannina pe tp i eri ri seli ima frane ea restudeecsiza gl agra i n odime he i vaelte biunore fo 17 azegie m betra sei ste cia ei a i nor ninetfitcaro 12 raniiala rime  7 to mirra poe e e e ar me te a motto teme tai a miu nerina area portoni sr si eneare e rrds i la reo tage remo eliot hrere ip pr sue ge 8 i re eee le al en pumande dl impingo  bavoro  sn it'
+2025-08-12 20:20:44,650 - WARNING - No headtitle match found. Best text: 'dei le  n ee ne eten me   ss è iu lun tr fo a ate ...'
+2025-08-12 20:20:45,139 - INFO - 
+========================================
+2025-08-12 20:20:45,139 - INFO - Processing page 88/100: UBOBU_UBO8306198_277667_0088.jpg
+2025-08-12 20:20:45,140 - INFO - ========================================
+2025-08-12 20:20:45,522 - INFO - OCR headtitle text: 'n giornaledgeremilia'
+2025-08-12 20:20:45,522 - INFO - Headtitle fuzzy match: 'giornale dell emilia' (ratio: 0.80)
+2025-08-12 20:21:03,831 - INFO - 
+========================================
+2025-08-12 20:21:03,831 - INFO - Processing page 89/100: UBOBU_UBO8306198_277667_0089.jpg
+2025-08-12 20:21:03,831 - INFO - ========================================
+2025-08-12 20:21:04,610 - INFO - OCR headtitle text: 'o ttt gronnate pes rape ordini corinto ai one oz cc roi ll n rlornale dellemilia e i ù cronaca di bologna se ila i picesnone  tooanara corazza icon cntt cardnti nor la libertà il de cctt7  gigeata une se  a 3 difficile litto di vale aldini denunela di zucchero no desta duna eg 2508 è vici erizone d rezione e amm nistra sio sà ra dazio ruddigo sr a sir e me è vre priuli n  selerna'
+2025-08-12 20:21:04,611 - WARNING - No headtitle match found. Best text: 'o ttt gronnate pes rape ordini corinto ai one oz c...'
+2025-08-12 20:21:11,012 - INFO - 
+========================================
+2025-08-12 20:21:11,012 - INFO - Processing page 90/100: UBOBU_UBO8306198_277667_0090.jpg
+2025-08-12 20:21:11,012 - INFO - ========================================
+2025-08-12 20:21:11,631 - INFO - OCR headtitle text: 'se veli asa d rezione è amm hisfrazione bolcgha aib a ieri quoi 1a  ipenden i informa   giee in asd postate gruoi è  seo due fegato gi  robin reit fatta so 8 quotidiano indipendente di informazioni siri pone iena  martedi  20 agosto 1946  ù i lee va e e ge aida pet ti tapilà pre ticl eteri jargh a coli ione do iper nel casta puntale n ti anno i  n 225  una copia l 5'
+2025-08-12 20:21:11,631 - WARNING - No headtitle match found. Best text: 'se veli asa d rezione è amm hisfrazione bolcgha ai...'
+2025-08-12 20:21:32,985 - INFO - Date found in full-page scan: 2 a 3000
+2025-08-12 20:21:32,987 - WARNING - Could not parse date string: '2 a 3000'
+2025-08-12 20:21:32,988 - INFO - 
+========================================
+2025-08-12 20:21:32,988 - INFO - Processing page 91/100: UBOBU_UBO8306198_277667_0091.jpg
+2025-08-12 20:21:32,988 - INFO - ========================================
+2025-08-12 20:21:33,967 - INFO - OCR headtitle text: 'su  dass è cai l a  desì da a è ì re giornale dellemilia a mim n ii e  li n  val  fo o n ac d i  omne stantere  tvere ere trec st tingraziamento  abile de sue ta parmette marone soste e rsa aprite   di i i aib v 1arq4t090 pnara porenti ie eur dela e di at tactteto fast ar di  ear oyt ttoottroho rr cercasi mede  pnpegaia pri 0 jus men punti   a 4 2  a  è mm  2 i i i i io pi i era 22280 domio no ceo i afinà 38 sile  ei i i nrarza rialianta tinanmrmanaanninna na mmoatfniffiffnoà tragico bilancio ernia ara cu cercanai nerisetsetue io ant ale cordaro i d fetione è 24m nstpa   à di se can e  0 i da vie dopo n i ielete'
+2025-08-12 20:21:33,967 - WARNING - No headtitle match found. Best text: 'su  dass è cai l a  desì da a è ì re giornale dell...'
+2025-08-12 20:21:34,273 - INFO - 
+========================================
+2025-08-12 20:21:34,273 - INFO - Processing page 92/100: UBOBU_UBO8306198_277667_0092.jpg
+2025-08-12 20:21:34,273 - INFO - ========================================
+2025-08-12 20:21:35,080 - INFO - OCR headtitle text: 'da  salate aa sedie è em nstpazione bolcona annonaninti quotidiano indipendente di informazioni seu perse gip mercoledì  21 agosto 1996 bios ilemale se 4 meloni rsi 2 prepfieinirt persi terna snso camme semmmenanen is 0 mne tl o ld dsàailî siiall iua  sic se è da o ucuunsto dg uf ale no ib anna i n 224 lina eranlia ll'
+2025-08-12 20:21:35,080 - WARNING - No headtitle match found. Best text: 'da  salate aa sedie è em nstpazione bolcona annona...'
+2025-08-12 20:22:13,885 - INFO - Date found in full-page scan: 20 Agosto 1946
+2025-08-12 20:22:13,887 - INFO - 
+========================================
+2025-08-12 20:22:13,887 - INFO - Processing page 93/100: UBOBU_UBO8306198_277667_0093.jpg
+2025-08-12 20:22:13,887 - INFO - ========================================
+2025-08-12 20:22:14,819 - INFO - OCR headtitle text: 'tt giornale dellemilia n  ipiccola pubbucita tre ar ma darcok e ao eee e emenvqo0v ty  7 scgmenio fmi lt carlo cappanari  9 nan e spestocoli d ect te te riotet teli d pezione è amm mist isecti ssatpima censo è pellcchi minmin fifa în nin can mami et te ven doeati n 3 tel re è a  e z   li lie 10 briana 1'
+2025-08-12 20:22:14,882 - WARNING - No headtitle match found. Best text: 'tt giornale dellemilia n  ipiccola pubbucita tre a...'
+2025-08-12 20:22:15,351 - INFO - 
+========================================
+2025-08-12 20:22:15,351 - INFO - Processing page 94/100: UBOBU_UBO8306198_277667_0094.jpg
+2025-08-12 20:22:15,351 - INFO - ========================================
+2025-08-12 20:22:16,356 - INFO - OCR headtitle text: 'il a buenone è mmn kstrazione bolcgh sn cu       icgha arnonsminii  denaae e aramrsstratione dnoicgna  7 li quotidiano indipen j orm ni è na use aia ei 1 oni dista n ano goeteie grato 1 giovedi  27 agoszio 1945 gigido diga jl dd gti 4 age nursiale o 218 anno l  n 227  una copia l 5'
+2025-08-12 20:22:16,356 - WARNING - No headtitle match found. Best text: 'il a buenone è mmn kstrazione bolcgh sn cu       i...'
+2025-08-12 20:22:45,038 - INFO - Date found in full-page scan: 22 Agosto 1946
+2025-08-12 20:22:45,038 - INFO - 
+========================================
+2025-08-12 20:22:45,038 - INFO - Processing page 95/100: UBOBU_UBO8306198_277667_0095.jpg
+2025-08-12 20:22:45,038 - INFO - ========================================
+2025-08-12 20:22:45,533 - INFO - OCR headtitle text: 'se vitto giornale dellemilia 0rt n 0 inchiesi sit ologna ji erefuangalo de pani tt ttztz70 4 borcaresebmanoa rbilndiminielli e anan ran'
+2025-08-12 20:22:45,533 - WARNING - No headtitle match found. Best text: 'se vitto giornale dellemilia 0rt n 0 inchiesi sit ...'
+2025-08-12 20:22:45,843 - INFO - 
+========================================
+2025-08-12 20:22:45,843 - INFO - Processing page 96/100: UBOBU_UBO8306198_277667_0096.jpg
+2025-08-12 20:22:45,843 - INFO - ========================================
+2025-08-12 20:22:46,534 - INFO - OCR headtitle text: 'inchiesta in spagna tra le quinte del cinema tie a ig riina jacir bey  aridi donde viene  come tutto'
+2025-08-12 20:22:46,534 - WARNING - No headtitle match found. Best text: 'inchiesta in spagna tra le quinte del cinema tie a...'
+2025-08-12 20:22:46,997 - INFO - 
+========================================
+2025-08-12 20:22:46,998 - INFO - Processing page 97/100: UBOBU_UBO8306198_277667_0097.jpg
+2025-08-12 20:22:46,998 - INFO - ========================================
+2025-08-12 20:22:48,491 - INFO - OCR headtitle text: 'è tt  bi hit icitittctizn fiorale dellemilia ieri neo civ  m  4 o è russi e tedeschi unmiracolatoafirenze 8 mi qui locali appartamenti p miert so iuio o mirino i  acquistabi nergrio catiraiità ivi i cea tt da 4 v as ic è sui il i fobbricano le v nella chiesa di s francesco neo asscis î mi anests mil cino nella rona sovietica nirrate 2 agro jacquistoeri sgiveno pene giovanna marchi è i o logora inerme ja noti  h 1 eriagliare cide pete ei bua si eni 1 i pi   è  è berlino 2 sgiuio u è ipo greta lee he giivhie auivano in collegamento con torino appartamenti è gii purea niadeniona direlone è amm nis'
+2025-08-12 20:22:48,493 - WARNING - No headtitle match found. Best text: 'è tt  bi hit icitittctizn fiorale dellemilia ieri ...'
+2025-08-12 20:22:48,931 - INFO - 
+========================================
+2025-08-12 20:22:48,931 - INFO - Processing page 98/100: UBOBU_UBO8306198_277667_0098.jpg
+2025-08-12 20:22:48,931 - INFO - ========================================
+2025-08-12 20:22:50,058 - INFO - OCR headtitle text: 'ne un  l e 4 hi   ce n   i      le e i t tt    cir pa n i n 2 n   n t  direzione è amm nisiramione bologna  mini quotidiano indipend ente di informazioni sortino ner siri  venerdi  23 ageno 1946 bio irogali om yo felefora 42910 ibitn sio vito af ju giri ine ge rprinà gio a snrenieniai pep 2100 tarifa pat miti gitegga sarai snnn cut i di è e pigi di i ceno i la pata so no 219 anno il  n 228  una copia l 5'
+2025-08-12 20:22:50,059 - WARNING - No headtitle match found. Best text: 'ne un  l e 4 hi   ce n   i      le e i t tt    cir...'
+2025-08-12 20:23:18,300 - INFO - Date found in full-page scan: 25 Agosto 1946
+2025-08-12 20:23:18,300 - INFO - 
+========================================
+2025-08-12 20:23:18,301 - INFO - Processing page 99/100: UBOBU_UBO8306198_277667_0099.jpg
+2025-08-12 20:23:18,301 - INFO - ========================================
+2025-08-12 20:23:18,902 - INFO - OCR headtitle text: 'a di giornale dellemilia     e fa n   di o zii n a piccola pubblicita tz up 4  h4 li li ha cotu le rivendicazioni d i î ì gr e an nensttriire è deli na riore na è seen xosli'
+2025-08-12 20:23:18,902 - WARNING - No headtitle match found. Best text: 'a di giornale dellemilia     e fa n   di o zii n a...'
+2025-08-12 20:23:31,722 - INFO - 
+========================================
+2025-08-12 20:23:31,722 - INFO - Processing page 100/100: UBOBU_UBO8306198_277667_0100.jpg
+2025-08-12 20:23:31,722 - INFO - ========================================
+2025-08-12 20:23:32,063 - INFO - OCR headtitle text: 'giornale dellemilia'
+2025-08-12 20:23:32,063 - INFO - Headtitle fuzzy match: 'giornale dell emilia' (ratio: 0.97)
+2025-08-12 20:23:58,919 - INFO - Results saved to: C:\Users\Lucrezia\Documents\GitHub\TOME-hnp\output\extraction_l.json
+2025-08-12 20:57:39,082 - WARNING - Error while downloading from https://cdn-lfs-us-1.hf.co/repos/06/bf/06bfd6210771d0cb1e62cf6718ee4c1c170d7339d683faab54d6908f635e6162/cea09a3e29d77fddd25d7e55992d8f17a49bcf8ed9c38ca4cba517e0045d45f5?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model-00013-of-00052.safetensors%3B+filename%3D%22model-00013-of-00052.safetensors%22%3B&Expires=1755025696&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc1NTAyNTY5Nn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zLzA2L2JmLzA2YmZkNjIxMDc3MWQwY2IxZTYyY2Y2NzE4ZWU0YzFjMTcwZDczMzlkNjgzZmFhYjU0ZDY5MDhmNjM1ZTYxNjIvY2VhMDlhM2UyOWQ3N2ZkZGQyNWQ3ZTU1OTkyZDhmMTdhNDliY2Y4ZWQ5YzM4Y2E0Y2JhNTE3ZTAwNDVkNDVmNT9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSoifV19&Signature=JBJH4FpWgJbrae5oN85afNUS3J-DiDiVGmqg184bKARM7ppZXud8dNLqGVILSrfv0m1XT2ga1Z4-xAVyHk0fQDMoCyeJSCXJ5UpcERW%7E9dJGCF-UfEY25yy1DBptRrRjZ0zPFQZXWEPA134vzQTxF7V6hrqa%7EfArS1LHtWgQqSqqsSpfXyHuDhr2rY%7EpwlT0ywp4N5G9qv7tzgiqVKSOpsSHXPgcLBOjE1BoMEPpKqsLPwu4XUarQ6zYxNxmv9oBCLYsH%7E0RvjjTskinBAiyzuqJj6MIW7Wjsw6RrzR6X-iokO71ZFv-BoilVDPRc6IPSvBxo5%7EVmaX%7E-nsgZX2p%7EA__&Key-Pair-Id=K24J24Z295AEI9: HTTPSConnectionPool(host='cdn-lfs-us-1.hf.co', port=443): Read timed out.
+Trying to resume download...

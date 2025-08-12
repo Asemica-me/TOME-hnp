@@ -323,7 +323,7 @@ def process_newspaper_images():
     # Setup output
     output_folder = os.path.join(root_dir, "output")
     os.makedirs(output_folder, exist_ok=True)
-    output_json = os.path.join(output_folder, "extraction_l.json")
+    output_json = os.path.join(output_folder, "script_lu.json")
     
     # Load existing results
     processed_data = {}

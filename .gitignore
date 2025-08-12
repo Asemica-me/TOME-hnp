@@ -5,5 +5,3 @@ script_paolo.py
 .venv/
 catalog/
 .env
-script_lu.log
-logs/

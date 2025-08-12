@@ -1,517 +1,470 @@
+# -*- coding: utf-8 -*-
+"""
+Front-page classification + metadata extraction for historical newspapers
+Proof of concept focused on: GIORNALE DELL'EMILIA
+- Strict masthead detection (contours + size gating)
+- OCR tuned for masthead (uppercase, single-line)
+- Date + issue extraction from top-right strip with multi-pass OCR
+"""
+
 import os
 import glob
 import logging
 import json
 import re
-import argparse
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from PIL import Image
 import pytesseract
-from sentence_transformers import SentenceTransformer, util
-import torch
-import difflib
+import unicodedata
+import cv2
+import numpy as np
+from rapidfuzz import fuzz
 from dotenv import load_dotenv
+
+# -----------------------------------------------------------------------------
+# Setup
+# -----------------------------------------------------------------------------
 load_dotenv()
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
 
-root_dir = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
-logs_folder = os.path.join(root_dir, 'logs')
-os.makedirs(logs_folder, exist_ok=True)
-
-log_file_path = os.path.join(logs_folder, "script_lu.log")
-
+LOGS_DIR = os.path.join(ROOT_DIR, 'logs')
+os.makedirs(LOGS_DIR, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(log_file_path)
-    ]
+    handlers=[logging.StreamHandler(),
+              logging.FileHandler(os.path.join(LOGS_DIR, "script_lu_2.log"), encoding='utf-8')]
 )
 
 IMAGE_FOLDER = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'imgs'))
 CATALOG_PATH = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'catalog', 'catalog_cleaned.xml'))
-START_DATE = os.getenv('START_DATE', '1946-07-21')
-END_DATE = os.getenv('END_DATE', '1947-05-15')
-NEWSPAPER_TITLE = os.getenv('NEWSPAPER_TITLE', 'Resto del Carlino')
+OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+OUTPUT_JSON = os.path.join(OUTPUT_DIR, "script_lu_2.json")
 
-# Configure Tesseract path
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-TESSERACT_PATH = pytesseract.pytesseract.tesseract_cmd
-if os.path.exists(TESSERACT_PATH):
-    pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+START_DATE = os.getenv('START_DATE', '1946-07-21')   # yyyy-mm-dd
+END_DATE   = os.getenv('END_DATE',   '1947-05-15')
+NEWSPAPER_TITLE = os.getenv('NEWSPAPER_TITLE', "Giornale dell'Emilia")
+
+# Tesseract configuration (env override -> common defaults)
+TESS_CMD = os.getenv('TESSERACT_CMD',
+                     r'C:\Program Files\Tesseract-OCR\tesseract.exe' if os.name == 'nt' else '/usr/bin/tesseract')
+if os.path.exists(TESS_CMD):
+    pytesseract.pytesseract.tesseract_cmd = TESS_CMD
+    logging.info(f"Tesseract: {TESS_CMD}")
 else:
-    logging.error(f"Tesseract not found at {TESSERACT_PATH}. Please install it or update the path.")
-    exit(1)
+    logging.warning(f"Tesseract not found at {TESS_CMD}. If installed elsewhere, set TESSERACT_CMD env variable.")
 
+# -----------------------------------------------------------------------------
+# Helpers: normalization & OCR
+# -----------------------------------------------------------------------------
+def strip_accents(s: str) -> str:
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
-# --- XML Catalog Processing ---
+def normalize_title(s: str) -> str:
+    s = strip_accents(s.lower())
+    s = re.sub(r"[^\w\s]", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+def configure_ocr():
+    # nothing special here; placeholder if you later add user-words or configs
+    pass
+
+def ocr_lines_with_boxes(pil_img, psm=6):
+    """Line-level OCR with coordinates (Tesseract)."""
+    cfg = f'--psm {psm} --oem 3 -l ita'
+    d = pytesseract.image_to_data(pil_img, config=cfg, output_type=pytesseract.Output.DICT)
+    lines = {}
+    for i, txt in enumerate(d['text']):
+        if not txt or not txt.strip():
+            continue
+        key = (d['page_num'][i], d['block_num'][i], d['par_num'][i], d['line_num'][i])
+        lines.setdefault(key, []).append({
+            'text': txt, 'conf': float(d['conf'][i]) if d['conf'][i] != '-1' else 0.0,
+            'x': d['left'][i], 'y': d['top'][i], 'w': d['width'][i], 'h': d['height'][i],
+        })
+    merged = []
+    for toks in lines.values():
+        x = min(t['x'] for t in toks); y = min(t['y'] for t in toks)
+        w = max(t['x'] + t['w'] for t in toks) - x
+        h = max(t['y'] + t['h'] for t in toks) - y
+        merged.append({'text': " ".join(t['text'] for t in toks), 'x': x, 'y': y, 'w': w, 'h': h,
+                       'conf': float(np.mean([t['conf'] for t in toks]))})
+    return merged
+
+# -----------------------------------------------------------------------------
+# UNIMARC loader
+# -----------------------------------------------------------------------------
 def load_headtitles(catalog_path):
-    """
-    Extract all historical headtitles from UNIMARC catalog
-    Returns a list of normalized headtitles
-    """
+    """Load title headings from UNIMARC 200$a."""
     headtitles = set()
     try:
         tree = ET.parse(catalog_path)
         root = tree.getroot()
-        
-        # Namespace handling
         ns = {'marc': 'http://www.loc.gov/MARC21/slim'}
-        
         for record in root.findall('marc:record', ns):
-            # Extract both code="a" and code="e" from datafield tags 182 and 200
-            for tag in [182, 200]:
-                for datafield in record.findall(f"marc:datafield[@tag='{tag}']", ns):
-                    for subfield in datafield.findall("marc:subfield[@code='a' or @code='e']", ns):
-                        if subfield.text:
-                            title = subfield.text.strip()
-                            # Normalize: lowercase, remove non-alphanumeric
-                            normalized = re.sub(r'[^\w\s]', '', title).lower()
-                            headtitles.add(normalized)
-        logging.info(f"Loaded {len(headtitles)} historical headtitles from catalog")
-        return list(headtitles)
-    
+            for datafield in record.findall("marc:datafield[@tag='200']", ns):
+                a = datafield.find("marc:subfield[@code='a']", ns)
+                if a is not None and a.text:
+                    headtitles.add(normalize_title(a.text))
+        logging.info(f"Loaded {len(headtitles)} titles from catalog")
     except Exception as e:
-        logging.error(f"Error processing catalog: {str(e)}")
-        return []
+        logging.error(f"Error reading catalog: {e}")
+    return list(headtitles)
 
-# --- OCR Configuration ---
-def configure_ocr():
-    """Configure Tesseract parameters"""
-    # Update this path to your Tesseract installation
-    tesseract_path = TESSERACT_PATH
-    if os.path.exists(tesseract_path):
-        pytesseract.pytesseract.tesseract_cmd = tesseract_path
-        logging.info("Tesseract configured successfully")
+# -----------------------------------------------------------------------------
+# Geometry cues
+# -----------------------------------------------------------------------------
+def _has_long_top_lines(cv_band):
+    g = cv2.cvtColor(cv_band, cv2.COLOR_BGR2GRAY)
+    g = cv2.GaussianBlur(g, (3, 3), 0)
+    edges = cv2.Canny(g, 50, 150)
+    lines = cv2.HoughLinesP(edges, 1, np.pi/180, threshold=120,
+                            minLineLength=int(cv_band.shape[1]*0.6), maxLineGap=15)
+    return lines is not None
+
+def _has_large_text(lines, band_h):
+    if not lines:
+        return False
+    h95 = np.percentile([ln['h'] for ln in lines], 95) if len(lines) >= 5 else max(ln['h'] for ln in lines)
+    return (h95 / max(1, band_h)) >= 0.06
+
+# (optional) small deskew for band — helps on slight rotations
+def deskew_band(gray):
+    edges = cv2.Canny(gray, 50, 150)
+    lines = cv2.HoughLines(edges, 1, np.pi/180, 120)
+    if lines is None:
+        return gray
+    angles = []
+    for rho_theta in lines:
+        rho, theta = rho_theta[0]
+        ang = (theta - np.pi/2) * 180/np.pi
+        if -5 <= ang <= 5:
+            angles.append(ang)
+    if not angles:
+        return gray
+    angle = float(np.median(angles))
+    H, W = gray.shape[:2]
+    M = cv2.getRotationMatrix2D((W//2, H//2), angle, 1.0)
+    return cv2.warpAffine(gray, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+
+# -----------------------------------------------------------------------------
+# Masthead ROI detection
+# -----------------------------------------------------------------------------
+def masthead_roi_from_band(band_gray_np: np.ndarray):
+    """
+    Find wide, tall masthead in the top band. Return (x1,y1,x2,y2) or None.
+    Tuned for 'GIORNALE dell'EMILIA' style; excludes tiny 'Cronaca di Bologna' cases.
+    """
+    H, W = band_gray_np.shape[:2]
+    blur = cv2.GaussianBlur(band_gray_np, (3,3), 0)
+    _, bw = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+    bw = cv2.morphologyEx(bw, cv2.MORPH_CLOSE,
+                          cv2.getStructuringElement(cv2.MORPH_RECT, (7, 5)), 1)
+
+    contours, _ = cv2.findContours(bw, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cand = []
+    for c in contours:
+        x, y, w, h = cv2.boundingRect(c)
+        aspect = w / max(1.0, h)
+        if (w >= 0.55 * W) and (h >= 0.28 * H) and (y < 0.55 * H) and (aspect >= 3.0):
+            cand.append((x, y, w, h))
+
+    if not cand:
+        return None
+
+    x1 = min(x for x, y, w, h in cand)
+    y1 = min(y for x, y, w, h in cand)
+    x2 = max(x + w for x, y, w, h in cand)
+    y2 = max(y + h for x, y, w, h in cand)
+
+    pad_x = int(0.02 * W); pad_y = int(0.03 * H)
+    x1 = max(0, x1 - pad_x); y1 = max(0, y1 - pad_y)
+    x2 = min(W, x2 + pad_x); y2 = min(H, y2 + pad_y)
+    return (x1, y1, x2, y2)
+
+# -----------------------------------------------------------------------------
+# Front page classifier (strict)
+# -----------------------------------------------------------------------------
+def is_front_page(image_path, headtitles):
+    """
+    Accept only if:
+      - masthead ROI is LARGE (size gating) AND
+      - OCR of ROI fuzzy-matches target title; or
+      - fallback finds a match on a LARGE line (small text suppressed)
+    """
+    target = headtitles[0]  # "giornale dell emilia"
+
+    img = Image.open(image_path)
+    W, H = img.size
+    band_h = int(H * 0.30)
+    band = img.crop((0, 0, W, band_h)).convert('L')
+
+    # optional deskew
+    band_np = np.array(band)
+    band_np = deskew_band(band_np)
+    band = Image.fromarray(band_np)
+
+    title_score = 0
+    price_cue = False
+
+    # --- A) Masthead-targeted OCR on ROI ---
+    roi_box = masthead_roi_from_band(band_np)
+    size_ok = False
+    if roi_box:
+        x1, y1, x2, y2 = roi_box
+        roi = band.crop((x1, y1, x2, y2))
+        roi = roi.point(lambda x: 0 if x < 150 else 255)
+        roi = roi.resize((roi.width * 3, roi.height * 3), Image.LANCZOS)
+
+        mast_txt = pytesseract.image_to_string(
+            roi,
+            config="--psm 7 --oem 1 -l ita -c preserve_interword_spaces=1 "
+                   "-c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ' "
+        )
+        mast_norm = normalize_title(mast_txt)
+        title_score = max(title_score, fuzz.token_set_ratio(target, mast_norm))
+
+        roi_w, roi_h = (x2 - x1), (y2 - y1)
+        size_ok = (roi_w >= 0.60 * W) and (roi_h >= 0.32 * band_h)
+
+    # --- B) Fallback OCR on full band (with small-text suppression) ---
+    if title_score < 75 or not size_ok:
+        band2 = band.point(lambda x: 0 if x < 160 else 255)
+        band2 = band2.resize((W, band_h * 2), Image.LANCZOS)
+        lines = ocr_lines_with_boxes(band2, psm=6)
+        large_line_min = max(18, int(0.20 * band_h))
+        for l in lines:
+            if l['h'] >= large_line_min:
+                norm = normalize_title(l['text'])
+                title_score = max(title_score, fuzz.token_set_ratio(target, norm))
+            if re.search(r"\bL\.\s*\d+\b", l['text']):
+                price_cue = True
+
+    # --- Geometry cue ---
+    cv_band = cv2.cvtColor(band_np, cv2.COLOR_GRAY2BGR)
+    geom_cue = _has_long_top_lines(cv_band) and _has_large_text(
+        ocr_lines_with_boxes(band, psm=6), band_h
+    )
+
+    # --- Decision ---
+    if roi_box:
+        decision = (title_score >= 75 and size_ok) or (title_score >= 85)
     else:
-        logging.warning(f"Tesseract path not found: {tesseract_path}")
+        decision = (title_score >= 80 and (geom_cue or price_cue))
 
-# --- Front Page Verification ---
-def is_valid_front_page(image_path, headtitles, min_ratio=0.4):
-    """
-    Optimized headtitle verification for full-width top region
-    """
-    try:
-        img = Image.open(image_path)
-        width, height = img.size
+    score = 0.65 * (title_score / 100.0) + 0.20 * (1 if geom_cue else 0) + 0.15 * (1 if price_cue else 0)
+    logging.info(
+        f"[{os.path.basename(image_path)}] title={title_score} size_ok={size_ok} "
+        f"geom={geom_cue} price={price_cue} -> front_score={score:.2f}"
+    )
+    return bool(decision)
 
-        # Define full-width top region (top 10% of page)
-        region = (0, 0, width, int(height * 0.08))
-        cropped = img.crop(region)
-
-        # Optimized preprocessing for newspaper headlines
-        def preprocess(image):
-            # Convert to grayscale
-            img_gray = image.convert('L')
-            
-            # Enhance contrast
-            img_contrast = Image.eval(img_gray, lambda x: 0 if x < 100 else 255)
-            
-            # Upscale for better OCR
-            img_large = img_contrast.resize(
-                (img_contrast.width * 2, img_contrast.height * 2),
-                Image.LANCZOS
-            )
-            return img_large
-
-        processed = preprocess(cropped)
-        
-        # OCR with newspaper-optimized configuration
-        text = pytesseract.image_to_string(
-            processed,
-            lang='ita',
-            config=(
-                '--psm 6 '        # Assume uniform block of text
-                '--oem 3 '        # LSTM + Legacy engine
-                '-c preserve_interword_spaces=1 '
-                '-c tessedit_char_blacklist=|\\><[]{}`~_^'
-            )
-        ).lower()
-
-        # Clean and normalize text
-        clean_text = re.sub(r'\s+', ' ', text)  # Collapse whitespace
-        clean_text = re.sub(r'[^\w\s]', '', clean_text).strip()
-        logging.info(f"OCR headtitle text: '{clean_text}'")
-
-        # Target headtitle variations
-        target_titles = [
-            "giornale dell emilia",
-            "il giornale dell emilia",
-            "giornale emilia"
-        ]
-        
-        # Check for direct matches first
-        for title in target_titles:
-            if title in clean_text:
-                logging.info(f"Exact headtitle match: '{title}'")
-                return True
-        
-        # Fuzzy match as fallback
-        for title in target_titles:
-            ratio = difflib.SequenceMatcher(None, title, clean_text).ratio()
-            if ratio >= min_ratio:
-                logging.info(f"Headtitle fuzzy match: '{title}' (ratio: {ratio:.2f})")
-                return True
-
-        logging.warning(f"No headtitle match found. Best text: '{clean_text[:50]}...'")
-        return False
-
-    except Exception as e:
-        logging.error(f"Headtitle verification failed: {str(e)}")
-        return False
-
-# --- Date Extraction Improvements ---
-def extract_date_with_ocr(image_path):
-    """Date extraction with improved region handling"""
-    try:
-        img = Image.open(image_path)
-        width, height = img.size
-        
-        # Define priority regions for date extraction
-        regions = [
-            (0, 0, width, int(height * 0.15)),           # Top strip
-            (int(width * 0.7), 0, width, int(height * 0.2)),  # Top-right corner
-            (0, 0, int(width * 0.4), int(height * 0.1)),  # Top-left corner
-            (int(width * 0.4), 0, int(width * 0.6), int(height * 0.1))  # Center top
-        ]
-        
-        date_patterns = [
-            r'\b\d{1,2}\s+[a-zA-Z]+\s+\d{4}\b',  # 12 Agosto 1946
-            r'\b\d{1,2}/\d{1,2}/\d{4}\b',         # 12/08/1946
-            r'\b\d{1,2}\.\d{1,2}\.\d{4}\b',       # 12.08.1946
-            r'\b\d{1,2}-\d{1,2}-\d{4}\b',         # 12-08-1946
-            r'\b\d{4}-\d{1,2}-\d{1,2}\b'          # 1946-08-12
-        ]
-        
-        for i, region in enumerate(regions):
-            try:
-                cropped = img.crop(region)
-                # region preprocessing
-                cropped = cropped.convert('L')  # Grayscale
-                cropped = cropped.resize((cropped.width*2, cropped.height*2), Image.LANCZOS)  # Upscale
-                cropped = cropped.point(lambda x: 0 if x < 180 else 255)  # Thresholding
-                
-                # Perform OCR
-                text = pytesseract.image_to_string(
-                    cropped, 
-                    lang='ita',
-                    config='--psm 6 --oem 3 -c tessedit_char_whitelist=0123456789/abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
-                )
-                
-                # Search for date patterns
-                for pattern in date_patterns:
-                    match = re.search(pattern, text)
-                    if match:
-                        date_str = match.group(0)
-                        logging.info(f"Date found in region {i+1}: {date_str}")
-                        return date_str
-                        
-            except Exception as e:
-                logging.warning(f"OCR processing failed for region {i+1}: {str(e)}")
-                continue
-        
-        # Final fallback: Full-page OCR with optimized settings
-        try:
-            full_text = pytesseract.image_to_string(
-                img.convert('L'),
-                lang='ita',
-                config='--psm 3 --oem 3'
-            )
-            for pattern in date_patterns:
-                match = re.search(pattern, full_text)
-                if match:
-                    date_str = match.group(0)
-                    logging.info(f"Date found in full-page scan: {date_str}")
-                    return date_str
-        except Exception as e:
-            logging.error(f"Full-page OCR failed: {str(e)}")
-            
-        return None
-        
-    except Exception as e:
-        logging.error(f"Date extraction failed: {str(e)}")
-        return None
-
-# --- Multimodal Model Handling ---
-MODEL_CACHE = None
-
-def load_multimodal_model():
-    global MODEL_CACHE
-    if MODEL_CACHE is None:
-        try:
-            MODEL_CACHE = SentenceTransformer('clip-ViT-B-32')
-            logging.info("Multimodal model loaded successfully")
-        except Exception as e:
-            logging.error(f"Model loading failed: {str(e)}")
-            raise
-    return MODEL_CACHE
-
-# --- Page Classification ---
 def classify_page(image_path, headtitles):
-    """
-    Classify pages with headtitle verification for front pages
-    Returns classification with confidence
-    """
     try:
-        # 1. Headtitle check (OCR)
-        if is_valid_front_page(image_path, headtitles):
-            return "Front Page", 1.0
-
-        # 2. Model prediction
-        model = load_multimodal_model()
-        img = Image.open(image_path)
-        img_emb = model.encode(img, convert_to_tensor=True)
-
-        prompts = {
-            "Front Page": [
-                "Front page of an Italian newspaper with masthead and date",
-                "First page of a newspaper with headlines and publication date",
-                "Cover page of a daily newspaper showing main stories"
-            ],
-            "Internal Page": [
-                "Inside page of a newspaper with multiple articles",
-                "Newspaper page with continued articles and advertisements",
-                "Regular content page in a periodical publication"
-            ]
-        }
-
-        category_scores = {}
-        for category, category_prompts in prompts.items():
-            prompt_embs = model.encode(category_prompts, convert_to_tensor=True)
-            similarities = util.cos_sim(img_emb, prompt_embs)
-            category_scores[category] = torch.max(similarities).item()
-
-        # Thresholds
-        FRONT_THRESHOLD = 0.33
-        INTERNAL_THRESHOLD = 0.30
-
-        if category_scores["Front Page"] >= FRONT_THRESHOLD:
-            return "Front Page", category_scores["Front Page"]
-        elif category_scores["Internal Page"] >= INTERNAL_THRESHOLD:
-            return "Internal Page", category_scores["Internal Page"]
-        else:
-            return "Uncertain", max(category_scores.values())
-
+        if is_front_page(image_path, headtitles):
+            return "Front Page", 0.95
+        return "Internal Page", 0.60
     except Exception as e:
-        logging.error(f"Classification failed: {str(e)}")
+        logging.error(f"Classification failed: {e}")
         return "Classification Error", 0.0
-    
-# --- Main Processing Function ---
-def process_newspaper_images():
-    # Load headtitles from catalog
-    catalog_path = CATALOG_PATH
-    headtitles = []
-    if os.path.exists(catalog_path):
-        headtitles = load_headtitles(catalog_path)
-    else:
-        logging.warning(f"Catalog not found at {catalog_path}. Using fallback headtitles.")
-        # Fallback to known titles
-        headtitles = [
-            "il resto del carlino",
-            "giornale dell emilia",
-            "giornale dell emilia riunite",
-            "il piccolo faust",
-            "periodico fantastico artistico teatrale"
+
+# -----------------------------------------------------------------------------
+# Date & Issue extraction (top-right priority + multi-pass OCR)
+# -----------------------------------------------------------------------------
+MONTHS = {
+    'gennaio':'01','febbraio':'02','marzo':'03','aprile':'04','maggio':'05','giugno':'06',
+    'luglio':'07','agosto':'08','settembre':'09','ottobre':'10','novembre':'11','dicembre':'12'
+}
+WEEKDAYS = r'(luned[iì]|marted[iì]|mercoled[iì]|gioved[iì]|venerd[iì]|sabato|domenica)'
+DATE_RX = re.compile(rf'(?:{WEEKDAYS}\s*[-–—]?\s*)?(\d{{1,2}})\s+(' + '|'.join(MONTHS.keys()) + r')\s+(\d{4})', re.IGNORECASE)
+NUM_RX  = re.compile(r'\b(\d{1,2})[./-](\d{1,2})[./-](\d{4})\b')
+ISSUE_RX = re.compile(r'\b[Nn]\.?\s*(\d{1,4})\b')
+
+def _ddmmyyyy(day, mon, year):
+    mm = MONTHS.get(normalize_title(mon), f"{int(mon):02d}")
+    return f"{int(day):02d}/{mm}/{year}"
+
+def _ocr_roi_try(pil_img, psm, upscale, hard_thresh=False):
+    """Preprocess + OCR a ROI and return text."""
+    img = pil_img.convert('L')
+    if hard_thresh:
+        img = img.point(lambda x: 0 if x < 170 else 255)
+    img = img.resize((img.width * upscale, img.height * upscale), Image.LANCZOS)
+    cfg = f'--psm {psm} --oem 3 -l ita -c preserve_interword_spaces=1'
+    return pytesseract.image_to_string(img, config=cfg)
+
+def extract_metadata_front(image_path):
+    img = Image.open(image_path)
+    W, H = img.size
+    rois = [
+        (int(W*0.60), 0, W, int(H*0.20)),        # top-right (highest priority)
+        (0, 0, W, int(H*0.18)),                  # full top strip
+        (int(W*0.40), 0, int(W*0.75), int(H*0.16)),  # top-center-right
+        (int(W*0.60), int(H*0.20), W, int(H*0.30))   # secondary band (20–30%)
+    ]
+    best = {'date': None, 'date_conf': 0.0, 'issue': None, 'issue_conf': 0.0}
+
+    for idx, (x1, y1, x2, y2) in enumerate(rois):
+        band = img.crop((x1, y1, x2, y2))
+        # Two-pass OCR: soft (psm7), then hard threshold if needed; upscale ×3 for small print
+        texts = [
+            _ocr_roi_try(band, psm=7, upscale=3, hard_thresh=False),
+            _ocr_roi_try(band, psm=7, upscale=3, hard_thresh=True),
+            _ocr_roi_try(band, psm=6, upscale=3, hard_thresh=False),
         ]
-    
-    # Configure OCR
-    configure_ocr()
-    
-    output_folder = os.path.join(root_dir, "output")
-    os.makedirs(output_folder, exist_ok=True)
-    output_json = os.path.join(output_folder, "extraction_l_optimized.json")
-    
-    # Load existing results
+        text = " ".join(t for t in texts if t)
+
+        bonus = 0.2 if idx == 0 else 0.0
+        # date (month words)
+        m = DATE_RX.search(text)
+        if m:
+            d, mon, y = m.group(1), m.group(2), m.group(3)
+            cand = _ddmmyyyy(d, mon, y)
+            score = min(1.0, 0.7 + bonus)
+            if score > best['date_conf']:
+                best['date'], best['date_conf'] = cand, score
+        else:
+            n = NUM_RX.search(text)
+            if n:
+                d, mon, y = n.groups()
+                cand = _ddmmyyyy(d, mon, y)
+                score = min(1.0, 0.65 + bonus)
+                if score > best['date_conf']:
+                    best['date'], best['date_conf'] = cand, score
+
+        k = ISSUE_RX.search(text)
+        if k:
+            issue = k.group(1)
+            score = min(1.0, 0.7 + bonus)
+            if score > best['issue_conf']:
+                best['issue'], best['issue_conf'] = issue, score
+
+        # short-circuit if both are strong
+        if best['date_conf'] >= 0.9 and best['issue_conf'] >= 0.9:
+            break
+
+    return best
+
+# -----------------------------------------------------------------------------
+# Pipeline
+# -----------------------------------------------------------------------------
+def process_newspaper_images():
+    """Main processing loop with fallback headtitles and PoC target filter."""
+    # Load existing results (dedupe by filename)
     processed_data = {}
-    if os.path.exists(output_json):
+    if os.path.exists(OUTPUT_JSON):
         try:
-            with open(output_json, 'r', encoding='utf-8') as f:
+            with open(OUTPUT_JSON, 'r', encoding='utf-8') as f:
                 for entry in json.load(f):
                     processed_data[entry["filename"]] = entry
             logging.info(f"Loaded {len(processed_data)} existing records")
         except Exception as e:
-            logging.warning(f"Failed to load existing data: {str(e)}")
-    
-    # Find images
-    image_extensions = ('*.jpg', '*.jpeg', '*.png', '*.bmp', '*.tiff')
+            logging.warning(f"Failed to load existing JSON: {e}")
+
+    # Headtitles from catalog (keep fallback if empty)
+    headtitles = load_headtitles(CATALOG_PATH) if os.path.exists(CATALOG_PATH) else []
+    if not headtitles:
+        headtitles = [
+            normalize_title("Il Resto del Carlino"),
+            normalize_title("Giornale dell'Emilia"),
+            normalize_title("Giornale dell'Emilia Riunite"),
+            normalize_title("Il Piccolo Faust"),
+            normalize_title("Periodico fantastico artistico teatrale"),
+        ]
+        logging.info(f"Using fallback headtitles: {headtitles}")
+
+    # PoC: only Giornale dell'Emilia
+    TARGET_CANONICAL = normalize_title("Giornale dell'Emilia")  # -> "giornale dell emilia"
+    headtitles = [t for t in headtitles if t == TARGET_CANONICAL] or [TARGET_CANONICAL]
+    logging.info(f"Using PoC target(s): {headtitles}")
+
+    configure_ocr()
+
+    # Collect images
     image_paths = []
-    for ext in image_extensions:
+    for ext in ('*.jpg', '*.jpeg', '*.png', '*.bmp', '*.tiff'):
         image_paths.extend(glob.glob(os.path.join(IMAGE_FOLDER, ext)))
-    
+    image_paths.sort()
     if not image_paths:
         logging.error(f"No images found in: {IMAGE_FOLDER}")
         return
-        
-    image_paths.sort()
     logging.info(f"Found {len(image_paths)} images to process")
-    
-    # Date validation range
-    min_date = datetime.strptime(args.start_date, "%Y-%m-%d")
-    max_date = datetime.strptime(args.end_date, "%Y-%m-%d")
+
+    # Date range and chronology guard
+    min_date = datetime.strptime(START_DATE, "%Y-%m-%d")
+    max_date = datetime.strptime(END_DATE, "%Y-%m-%d")
     last_valid_date = None
-    
-    # Process images
+
     for idx, img_path in enumerate(image_paths):
         filename = os.path.basename(img_path)
         page_num = idx + 1
-        
-        logging.info(f"\n{'='*40}")
+
+        logging.info("\n" + "="*40)
         logging.info(f"Processing page {page_num}/{len(image_paths)}: {filename}")
-        logging.info(f"{'='*40}")
-        
+        logging.info("="*40)
+
         result = {
             "filename": filename,
             "page_number": page_num,
             "classification": "Unknown",
             "classification_confidence": 0.0,
-            "issue_date": "N/A",
+            "issue_date": "N/A",  # dd/mm/yyyy
             "issue_number": "N/A",
             "hasGraphics": False,
             "processing_errors": []
         }
-        
+
         try:
-            # Classify page with headtitle verification
             classification, confidence = classify_page(img_path, headtitles)
             result["classification"] = classification
-            result["classification_confidence"] = confidence
-            
-            # Date extraction for front pages
+            result["classification_confidence"] = float(confidence)
+
             if classification == "Front Page":
-                date_str = extract_date_with_ocr(img_path)
-                if date_str:
-                    result["issue_date"] = date_str
-                    
-                    # Date validation
-                    date_obj = parse_italian_date(date_str)
-                    if date_obj:
-                        # Range validation
-                        if min_date <= date_obj <= max_date:
-                            # Chronology validation
-                            if last_valid_date is None or date_obj >= last_valid_date:
-                                result["issue_date"] = date_obj.strftime('%Y-%m-%d')
-                                last_valid_date = date_obj
+                meta = extract_metadata_front(img_path)
+
+                # Date
+                if meta.get('date'):
+                    try:
+                        d_obj = datetime.strptime(meta['date'], "%d/%m/%Y")
+                        if min_date <= d_obj <= max_date:
+                            if last_valid_date is None or d_obj >= last_valid_date:
+                                result["issue_date"] = meta['date']
+                                last_valid_date = d_obj
                             else:
                                 result["processing_errors"].append(
-                                    f"Date {date_obj.strftime('%Y-%m-%d')} is earlier than last valid date"
+                                    f"Date {meta['date']} earlier than previous front-page date"
                                 )
-                                result["issue_date"] = "N/A"
                         else:
                             result["processing_errors"].append(
-                                f"Date {date_obj.strftime('%Y-%m-%d')} outside valid range"
+                                f"Date {meta['date']} outside range {min_date:%d/%m/%Y}-{max_date:%d/%m/%Y}"
                             )
-                            result["issue_date"] = "N/A"
-                    else:
-                        result["processing_errors"].append(
-                            f"Failed to parse date: {date_str}"
-                        )
-                        result["issue_date"] = "N/A"
+                    except Exception as e:
+                        result["processing_errors"].append(f"Failed to parse extracted date '{meta['date']}': {e}")
                 else:
-                    result["processing_errors"].append("No date extracted from front page")
-            
+                    result["processing_errors"].append("No date extracted")
+
+                # Issue number
+                if meta.get('issue'):
+                    result["issue_number"] = meta['issue']
+                else:
+                    result["processing_errors"].append("No issue number extracted")
+
         except Exception as e:
-            error_msg = f"Processing failed: {str(e)}"
-            logging.error(error_msg, exc_info=True)
-            result["processing_errors"].append(error_msg)
-        
-        # --- Only keep the latest result for each filename ---
+            logging.error(f"Processing error on {filename}: {e}", exc_info=True)
+            result["processing_errors"].append(str(e))
+
         processed_data[filename] = result
 
-    # --- Write deduplicated results ---
-    #output_json = os.path.join(output_folder, "extraction_output.json")
-    with open(output_json, 'w', encoding='utf-8') as f:
+    with open(OUTPUT_JSON, 'w', encoding='utf-8') as f:
         json.dump(list(processed_data.values()), f, indent=2, ensure_ascii=False)
-    logging.info(f"Results saved to: {output_json}")
+    logging.info(f"Results saved to: {OUTPUT_JSON}")
 
-# --- Italian Date Parser ---
-def parse_italian_date(date_str):
-    """Robust Italian date parser with multiple format support"""
-    if not date_str or date_str.lower() in ["", "n/a", "null", "none"]:
-        return None
-
-    # Clean input string
-    date_str = re.sub(r'[^\w\s/.-]', '', date_str.lower().strip())
-    
-    # Italian month mappings
-    months = {
-        'gennaio': 1, 'febbraio': 2, 'marzo': 3, 'aprile': 4, 'maggio': 5, 'giugno': 6,
-        'luglio': 7, 'agosto': 8, 'settembre': 9, 'ottobre': 10, 'novembre': 11, 'dicembre': 12,
-        'gen': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'mag': 5, 'giu': 6,
-        'lug': 7, 'ago': 8, 'set': 9, 'ott': 10, 'nov': 11, 'dic': 12
-    }
-    
-    # Try standard formats first
-    for fmt in ("%d/%m/%Y", "%Y-%m-%d", "%d-%m-%Y", "%d.%m.%Y", "%Y/%m/%d"):
-        try:
-            return datetime.strptime(date_str, fmt)
-        except ValueError:
-            pass
-    
-    # Try formats with Italian month names
-    for month_name, month_num in months.items():
-        if month_name in date_str:
-            # Day-Month-Year pattern
-            pattern = rf'(\d{{1,2}})\s*{month_name}\s*(\d{{4}})'
-            match = re.search(pattern, date_str)
-            if match:
-                try:
-                    day = int(match.group(1))
-                    year = int(match.group(2))
-                    return datetime(year, month_num, day)
-                except ValueError:
-                    continue
-                    
-            # Year-Month-Day pattern
-            pattern = rf'(\d{{4}})\s*{month_name}\s*(\d{{1,2}})'
-            match = re.search(pattern, date_str)
-            if match:
-                try:
-                    year = int(match.group(1))
-                    day = int(match.group(2))
-                    return datetime(year, month_num, day)
-                except ValueError:
-                    continue
-    
-    # Numeric formats with different separators
-    for sep in [' ', '.', '-', '/']:
-        # Day-Month-Year
-        pattern = rf'(\d{{1,2}}){sep}(\d{{1,2}}){sep}(\d{{4}})'
-        match = re.search(pattern, date_str)
-        if match:
-            try:
-                day = int(match.group(1))
-                month = int(match.group(2))
-                year = int(match.group(3))
-                return datetime(year, month, day)
-            except ValueError:
-                continue
-        
-        # Year-Month-Day
-        pattern = rf'(\d{{4}}){sep}(\d{{1,2}}){sep}(\d{{1,2}})'
-        match = re.search(pattern, date_str)
-        if match:
-            try:
-                year = int(match.group(1))
-                month = int(match.group(2))
-                day = int(match.group(3))
-                return datetime(year, month, day)
-            except ValueError:
-                continue
-    
-    logging.warning(f"Could not parse date string: '{date_str}'")
-    return None
-
-# --- Argument Parsing ---
+# -----------------------------------------------------------------------------
+# Main
+# -----------------------------------------------------------------------------
 if __name__ == "__main__":
-    class Args:
-        def __init__(self):
-            self.image_folder = IMAGE_FOLDER
-            self.start_date = START_DATE
-            self.end_date = END_DATE
-            self.title = NEWSPAPER_TITLE
-    
-    args = Args()
     process_newspaper_images()
