@@ -189,8 +189,8 @@ def normalize_classification(raw_classification: str) -> str:
 # --- Pixtral Model Helper Functions ---
 def load_pixtral_model():
     """Load Pixtral model and processor"""
-    model_name = "nintwentydo/Pixtral-Large-Instruct-2411"
-    processor = AutoProcessor.from_pretrained(model_name, use_fast=True)
+    model_name = "mistral-community/pixtral-12b"
+    processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True, token=HF_TOKEN)
     model = AutoModelForVision2Seq.from_pretrained(
         model_name,
         torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32

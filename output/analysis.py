@@ -61,7 +61,7 @@ def analyze_frontpage_dates(json_path):
             print(f"{i}. {entry}")
 
 if __name__ == "__main__":
-    default_json = 'extraction_l.json'
+    default_json = 'script_lu.json'
     script_dir = os.path.dirname(os.path.abspath(__file__))
     default_json_path = os.path.join(script_dir, default_json)
 

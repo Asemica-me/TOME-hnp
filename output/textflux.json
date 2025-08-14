@@ -1,0 +1,1302 @@
+[
+  {
+    "filename": "UBOBU_UBO8306198_277667_0001.jpg",
+    "page_number": 1,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.011868827377059337,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0002.jpg",
+    "page_number": 2,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.010272144573416384,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0003.jpg",
+    "page_number": 3,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.008101806440999912,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0004.jpg",
+    "page_number": 4,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.00305077121331378,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0005.jpg",
+    "page_number": 5,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.002522214749916738,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0006.jpg",
+    "page_number": 6,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0840038407821229,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0007.jpg",
+    "page_number": 7,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10096636490324189,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0008.jpg",
+    "page_number": 8,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08352646239554318,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0009.jpg",
+    "page_number": 9,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09169957985528887,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0010.jpg",
+    "page_number": 10,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07563317012331089,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0011.jpg",
+    "page_number": 11,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0963056406768692,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0012.jpg",
+    "page_number": 12,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08794762569832403,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0013.jpg",
+    "page_number": 13,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09831511142823493,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0014.jpg",
+    "page_number": 14,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09009727268822465,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0015.jpg",
+    "page_number": 15,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09506655028771334,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0016.jpg",
+    "page_number": 16,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08461729691876752,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0017.jpg",
+    "page_number": 17,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09966381945943253,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0018.jpg",
+    "page_number": 18,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08478124988428579,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0019.jpg",
+    "page_number": 19,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08879748603351956,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0020.jpg",
+    "page_number": 20,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08378851540616246,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0021.jpg",
+    "page_number": 21,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09052093836826634,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0022.jpg",
+    "page_number": 22,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0971154058414514,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0023.jpg",
+    "page_number": 23,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09808983286908078,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0024.jpg",
+    "page_number": 24,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "N. 202",
+    "_diagnostics": {
+      "p_textflux": 0.08259043296089386,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0025.jpg",
+    "page_number": 25,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09790772971917142,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0026.jpg",
+    "page_number": 26,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08587885154061625,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0027.jpg",
+    "page_number": 27,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10023105850451416,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0028.jpg",
+    "page_number": 28,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08777541782729806,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0029.jpg",
+    "page_number": 29,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10150520833333333,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0030.jpg",
+    "page_number": 30,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08313300835654597,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0031.jpg",
+    "page_number": 31,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09370145631067961,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0032.jpg",
+    "page_number": 32,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08237744413407821,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0033.jpg",
+    "page_number": 33,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0944075208714525,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0034.jpg",
+    "page_number": 34,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08425182577513493,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0035.jpg",
+    "page_number": 35,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10483973463687152,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0036.jpg",
+    "page_number": 36,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08901431561422185,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0037.jpg",
+    "page_number": 37,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "N. 20",
+    "_diagnostics": {
+      "p_textflux": 0.10181183834890718,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0038.jpg",
+    "page_number": 38,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08370229807412798,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0039.jpg",
+    "page_number": 39,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09464600840336135,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0040.jpg",
+    "page_number": 40,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07867612044817927,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0041.jpg",
+    "page_number": 41,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10250914801634306,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0042.jpg",
+    "page_number": 42,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08856967787114846,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0043.jpg",
+    "page_number": 43,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09672619045383743,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0044.jpg",
+    "page_number": 44,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08723823934890014,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0045.jpg",
+    "page_number": 45,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09746552924791085,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0046.jpg",
+    "page_number": 46,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07971126760563381,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0047.jpg",
+    "page_number": 47,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09928802539526121,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0048.jpg",
+    "page_number": 48,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08592213687150839,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0049.jpg",
+    "page_number": 49,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09777409472844685,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0050.jpg",
+    "page_number": 50,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08710719273743017,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0051.jpg",
+    "page_number": 51,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.1011756302371415,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0052.jpg",
+    "page_number": 52,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08232935393258428,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0053.jpg",
+    "page_number": 53,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10403386866204004,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0054.jpg",
+    "page_number": 54,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09221708683501564,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0055.jpg",
+    "page_number": 55,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09810553220367446,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0056.jpg",
+    "page_number": 56,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0800864146275378,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0057.jpg",
+    "page_number": 57,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10209853760445683,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0058.jpg",
+    "page_number": 58,
+    "classification": "front_page",
+    "issue_date": "07/08/1966",
+    "issue_number": "N. 235",
+    "_diagnostics": {
+      "p_textflux": 0.07723661971830986,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0059.jpg",
+    "page_number": 59,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10282199719902023,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0060.jpg",
+    "page_number": 60,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07870518207282914,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0061.jpg",
+    "page_number": 61,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09764581014369952,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0062.jpg",
+    "page_number": 62,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07604460785663178,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0063.jpg",
+    "page_number": 63,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10400980516120024,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0064.jpg",
+    "page_number": 64,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08569543541952172,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0065.jpg",
+    "page_number": 65,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09933611499004558,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0066.jpg",
+    "page_number": 66,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08056830985915493,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0067.jpg",
+    "page_number": 67,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09011801112663947,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0068.jpg",
+    "page_number": 68,
+    "classification": "front_page",
+    "issue_date": "11/08/1946",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07469403925638379,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0069.jpg",
+    "page_number": 69,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.10129459082487913,
+      "masthead_rect": false,
+      "price_found": false,
+      "votes": 0
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0070.jpg",
+    "page_number": 70,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07686227336122735,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0071.jpg",
+    "page_number": 71,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09125535461911867,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0072.jpg",
+    "page_number": 72,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0827717575458433,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0073.jpg",
+    "page_number": 73,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09147440888437214,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0074.jpg",
+    "page_number": 74,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07483217270194986,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0075.jpg",
+    "page_number": 75,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08876390045022857,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0076.jpg",
+    "page_number": 76,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0832949789923082,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0077.jpg",
+    "page_number": 77,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08946511786854465,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0078.jpg",
+    "page_number": 78,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07623105850120523,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0079.jpg",
+    "page_number": 79,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08883892006670462,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0080.jpg",
+    "page_number": 80,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07271910734940192,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0081.jpg",
+    "page_number": 81,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08990734265734265,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0082.jpg",
+    "page_number": 82,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.08028111888111887,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0083.jpg",
+    "page_number": 83,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07727033660459355,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0084.jpg",
+    "page_number": 84,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07737377622377622,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0085.jpg",
+    "page_number": 85,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09130259474058378,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0086.jpg",
+    "page_number": 86,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.06545652173913043,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0087.jpg",
+    "page_number": 87,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09405361613827616,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0088.jpg",
+    "page_number": 88,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07280575035063114,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0089.jpg",
+    "page_number": 89,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09073172942551978,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0090.jpg",
+    "page_number": 90,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "N. 26",
+    "_diagnostics": {
+      "p_textflux": 0.07765664335765714,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0091.jpg",
+    "page_number": 91,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09366566434282862,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0092.jpg",
+    "page_number": 92,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "N. 211",
+    "_diagnostics": {
+      "p_textflux": 0.0771969845260978,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0093.jpg",
+    "page_number": 93,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09821199742759915,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0094.jpg",
+    "page_number": 94,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07546069934095119,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0095.jpg",
+    "page_number": 95,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09433848314606742,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0096.jpg",
+    "page_number": 96,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.06669845501850412,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0097.jpg",
+    "page_number": 97,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.09186736402569326,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0098.jpg",
+    "page_number": 98,
+    "classification": "front_page",
+    "issue_date": "",
+    "issue_number": "N. 228",
+    "_diagnostics": {
+      "p_textflux": 0.07444558203809791,
+      "masthead_rect": true,
+      "price_found": true,
+      "votes": 2
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0099.jpg",
+    "page_number": 99,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.0998788918859311,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0100.jpg",
+    "page_number": 100,
+    "classification": "not_front_page",
+    "issue_date": "",
+    "issue_number": "",
+    "_diagnostics": {
+      "p_textflux": 0.07630481171091717,
+      "masthead_rect": true,
+      "price_found": false,
+      "votes": 1
+    }
+  }
+]

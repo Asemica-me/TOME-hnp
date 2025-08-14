@@ -5,3 +5,5 @@ script_paolo.py
 .venv/
 catalog/
 .env
+__pycache__/
+debug/
