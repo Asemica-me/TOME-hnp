@@ -92,7 +92,7 @@ def configure_ocr():
 # --- Front Page Verification ---
 def is_valid_front_page(image_path, headtitles, min_ratio=0.4):
     """
-    Optimized headtitle verification for full-width top region
+    Headtitle verification for full-width top region
     """
     try:
         img = Image.open(image_path)
@@ -102,7 +102,7 @@ def is_valid_front_page(image_path, headtitles, min_ratio=0.4):
         region = (0, 0, width, int(height * 0.08))
         cropped = img.crop(region)
 
-        # Optimized preprocessing for newspaper headlines
+        # Preprocessing for newspaper headlines
         def preprocess(image):
             # Convert to grayscale
             img_gray = image.convert('L')
@@ -119,7 +119,7 @@ def is_valid_front_page(image_path, headtitles, min_ratio=0.4):
 
         processed = preprocess(cropped)
         
-        # OCR with newspaper-optimized configuration
+        # OCR with configuration for newspapers
         text = pytesseract.image_to_string(
             processed,
             lang='ita',
@@ -163,9 +163,9 @@ def is_valid_front_page(image_path, headtitles, min_ratio=0.4):
         logging.error(f"Headtitle verification failed: {str(e)}")
         return False
 
-# --- Date Extraction Improvements ---
+# --- Date Extraction ---
 def extract_date_with_ocr(image_path):
-    """Date extraction with improved region handling"""
+    """Date extraction with region handling"""
     try:
         img = Image.open(image_path)
         width, height = img.size
@@ -213,7 +213,7 @@ def extract_date_with_ocr(image_path):
                 logging.warning(f"OCR processing failed for region {i+1}: {str(e)}")
                 continue
         
-        # Final fallback: Full-page OCR with optimized settings
+        # Final fallback: Full-page OCR
         try:
             full_text = pytesseract.image_to_string(
                 img.convert('L'),

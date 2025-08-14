@@ -39,7 +39,7 @@ def analyze_frontpage_dates(json_path):
     # Calculate success rate
     success_rate = (valid_dates_count / total_front_pages * 100) if total_front_pages > 0 else 0
 
-    print("\nEnhanced Front Page Date Extraction Report")
+    print("\nFront-page Date Extraction Report")
     print("=" * 50)
     print(f"Total unique front pages (verified): {total_front_pages}")
     print(f"Front pages with valid dates: {valid_dates_count}")
@@ -61,7 +61,7 @@ def analyze_frontpage_dates(json_path):
             print(f"{i}. {entry}")
 
 if __name__ == "__main__":
-    default_json = 'script_lu.json'
+    default_json = 'script_lu_CRAFT.json'
     script_dir = os.path.dirname(os.path.abspath(__file__))
     default_json_path = os.path.join(script_dir, default_json)
 

@@ -1,0 +1,1104 @@
+[
+  {
+    "filename": "UBOBU_UBO8306198_277667_0001.jpg",
+    "page_number": 1,
+    "classification": "Uncertain",
+    "classification_confidence": 0.2605312466621399,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0002.jpg",
+    "page_number": 2,
+    "classification": "Uncertain",
+    "classification_confidence": 0.25733286142349243,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0003.jpg",
+    "page_number": 3,
+    "classification": "Uncertain",
+    "classification_confidence": 0.24507002532482147,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0004.jpg",
+    "page_number": 4,
+    "classification": "Uncertain",
+    "classification_confidence": 0.24833805859088898,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0005.jpg",
+    "page_number": 5,
+    "classification": "Uncertain",
+    "classification_confidence": 0.25867849588394165,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0006.jpg",
+    "page_number": 6,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0007.jpg",
+    "page_number": 7,
+    "classification": "Uncertain",
+    "classification_confidence": 0.29197418689727783,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0008.jpg",
+    "page_number": 8,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3076156675815582,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0009.jpg",
+    "page_number": 9,
+    "classification": "Internal Page",
+    "classification_confidence": 0.3063907027244568,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0010.jpg",
+    "page_number": 10,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-07-22",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0011.jpg",
+    "page_number": 11,
+    "classification": "Front Page",
+    "classification_confidence": 0.3308327794075012,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0012.jpg",
+    "page_number": 12,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-07-25",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0013.jpg",
+    "page_number": 13,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0014.jpg",
+    "page_number": 14,
+    "classification": "Internal Page",
+    "classification_confidence": 0.3124487102031708,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0015.jpg",
+    "page_number": 15,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1948-07-23 outside valid range"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0016.jpg",
+    "page_number": 16,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1946-07-24 is earlier than last valid date"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0017.jpg",
+    "page_number": 17,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0018.jpg",
+    "page_number": 18,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-07-25",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0019.jpg",
+    "page_number": 19,
+    "classification": "Uncertain",
+    "classification_confidence": 0.2879045009613037,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0020.jpg",
+    "page_number": 20,
+    "classification": "Front Page",
+    "classification_confidence": 0.3396724462509155,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0021.jpg",
+    "page_number": 21,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0022.jpg",
+    "page_number": 22,
+    "classification": "Front Page",
+    "classification_confidence": 0.3439396619796753,
+    "issue_date": "1946-07-26",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0023.jpg",
+    "page_number": 23,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0024.jpg",
+    "page_number": 24,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-07-27",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0025.jpg",
+    "page_number": 25,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0026.jpg",
+    "page_number": 26,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3127462565898895,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0027.jpg",
+    "page_number": 27,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0028.jpg",
+    "page_number": 28,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0029.jpg",
+    "page_number": 29,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0030.jpg",
+    "page_number": 30,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-07-29",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0031.jpg",
+    "page_number": 31,
+    "classification": "Uncertain",
+    "classification_confidence": 0.31426259875297546,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0032.jpg",
+    "page_number": 32,
+    "classification": "Front Page",
+    "classification_confidence": 0.34160906076431274,
+    "issue_date": "1946-07-30",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0033.jpg",
+    "page_number": 33,
+    "classification": "Uncertain",
+    "classification_confidence": 0.2973266839981079,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0034.jpg",
+    "page_number": 34,
+    "classification": "Front Page",
+    "classification_confidence": 0.3550666570663452,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0035.jpg",
+    "page_number": 35,
+    "classification": "Uncertain",
+    "classification_confidence": 0.31121304631233215,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0036.jpg",
+    "page_number": 36,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3140943646430969,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0037.jpg",
+    "page_number": 37,
+    "classification": "Uncertain",
+    "classification_confidence": 0.301544189453125,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0038.jpg",
+    "page_number": 38,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-01",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0039.jpg",
+    "page_number": 39,
+    "classification": "Uncertain",
+    "classification_confidence": 0.29963260889053345,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0040.jpg",
+    "page_number": 40,
+    "classification": "Front Page",
+    "classification_confidence": 0.3491573929786682,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0041.jpg",
+    "page_number": 41,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0042.jpg",
+    "page_number": 42,
+    "classification": "Front Page",
+    "classification_confidence": 0.35803577303886414,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1945-07-27 outside valid range"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0043.jpg",
+    "page_number": 43,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0044.jpg",
+    "page_number": 44,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3277114927768707,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0045.jpg",
+    "page_number": 45,
+    "classification": "Internal Page",
+    "classification_confidence": 0.30500245094299316,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0046.jpg",
+    "page_number": 46,
+    "classification": "Internal Page",
+    "classification_confidence": 0.30866602063179016,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0047.jpg",
+    "page_number": 47,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0048.jpg",
+    "page_number": 48,
+    "classification": "Internal Page",
+    "classification_confidence": 0.3127412796020508,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0049.jpg",
+    "page_number": 49,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Failed to parse date: 9 e 1018"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0050.jpg",
+    "page_number": 50,
+    "classification": "Internal Page",
+    "classification_confidence": 0.3148016631603241,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0051.jpg",
+    "page_number": 51,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0052.jpg",
+    "page_number": 52,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-05",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0053.jpg",
+    "page_number": 53,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3058250844478607,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0054.jpg",
+    "page_number": 54,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3004409968852997,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0055.jpg",
+    "page_number": 55,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3202725648880005,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0056.jpg",
+    "page_number": 56,
+    "classification": "Front Page",
+    "classification_confidence": 0.3357663154602051,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0057.jpg",
+    "page_number": 57,
+    "classification": "Internal Page",
+    "classification_confidence": 0.30109113454818726,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0058.jpg",
+    "page_number": 58,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-07",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0059.jpg",
+    "page_number": 59,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0060.jpg",
+    "page_number": 60,
+    "classification": "Uncertain",
+    "classification_confidence": 0.3288772404193878,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0061.jpg",
+    "page_number": 61,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0062.jpg",
+    "page_number": 62,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0063.jpg",
+    "page_number": 63,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0064.jpg",
+    "page_number": 64,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-09",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0065.jpg",
+    "page_number": 65,
+    "classification": "Internal Page",
+    "classification_confidence": 0.30006805062294006,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0066.jpg",
+    "page_number": 66,
+    "classification": "Front Page",
+    "classification_confidence": 0.3498581647872925,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0067.jpg",
+    "page_number": 67,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0068.jpg",
+    "page_number": 68,
+    "classification": "Front Page",
+    "classification_confidence": 0.38044023513793945,
+    "issue_date": "1946-08-11",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0069.jpg",
+    "page_number": 69,
+    "classification": "Uncertain",
+    "classification_confidence": 0.31953224539756775,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0070.jpg",
+    "page_number": 70,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0071.jpg",
+    "page_number": 71,
+    "classification": "Front Page",
+    "classification_confidence": 0.33320915699005127,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0072.jpg",
+    "page_number": 72,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0073.jpg",
+    "page_number": 73,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0074.jpg",
+    "page_number": 74,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0075.jpg",
+    "page_number": 75,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0076.jpg",
+    "page_number": 76,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-14",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0077.jpg",
+    "page_number": 77,
+    "classification": "Internal Page",
+    "classification_confidence": 0.30686885118484497,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0078.jpg",
+    "page_number": 78,
+    "classification": "Uncertain",
+    "classification_confidence": 0.31946492195129395,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0079.jpg",
+    "page_number": 79,
+    "classification": "Front Page",
+    "classification_confidence": 0.34864047169685364,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1046-04-06 outside valid range"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0080.jpg",
+    "page_number": 80,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1800-06-10 outside valid range"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0081.jpg",
+    "page_number": 81,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1945-10-05 outside valid range"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0082.jpg",
+    "page_number": 82,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Date 1548-12-14 outside valid range"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0083.jpg",
+    "page_number": 83,
+    "classification": "Front Page",
+    "classification_confidence": 0.33912193775177,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0084.jpg",
+    "page_number": 84,
+    "classification": "Front Page",
+    "classification_confidence": 0.3523411154747009,
+    "issue_date": "1946-08-18",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0085.jpg",
+    "page_number": 85,
+    "classification": "Front Page",
+    "classification_confidence": 0.3495577573776245,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0086.jpg",
+    "page_number": 86,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0087.jpg",
+    "page_number": 87,
+    "classification": "Uncertain",
+    "classification_confidence": 0.2951588034629822,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0088.jpg",
+    "page_number": 88,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0089.jpg",
+    "page_number": 89,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0090.jpg",
+    "page_number": 90,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "Failed to parse date: 2 a 3000"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0091.jpg",
+    "page_number": 91,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0092.jpg",
+    "page_number": 92,
+    "classification": "Front Page",
+    "classification_confidence": 0.3337690532207489,
+    "issue_date": "1946-08-20",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0093.jpg",
+    "page_number": 93,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0094.jpg",
+    "page_number": 94,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-22",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0095.jpg",
+    "page_number": 95,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0096.jpg",
+    "page_number": 96,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0097.jpg",
+    "page_number": 97,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0098.jpg",
+    "page_number": 98,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "1946-08-25",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": []
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0099.jpg",
+    "page_number": 99,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  },
+  {
+    "filename": "UBOBU_UBO8306198_277667_0100.jpg",
+    "page_number": 100,
+    "classification": "Front Page",
+    "classification_confidence": 1.0,
+    "issue_date": "N/A",
+    "issue_number": "N/A",
+    "hasGraphics": false,
+    "processing_errors": [
+      "No date extracted from front page"
+    ]
+  }
+]
